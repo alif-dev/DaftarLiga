@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Daftar Liga</string>
+    <string name="league_image">League Image</string>
+
+    <string-array name="league_name">
+        <item>English Premier League</item>
+        <item>French Ligue 1</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>Spanish la Liga</item>
+        <item>Amerikan Mayor League</item>
+        <item>Portugeuese Premiera Liga</item>
+        <item>Australian A League</item>
+        <item>Scotish Premier League</item>
+        <item>English League 1</item>
+    </string-array>
+    
+    <array name="league_image">
+        <item>@drawable/img1_english_premier_league</item>
+        <item>@drawable/img2_french_ligue_1</item>
+        <item>@drawable/img3_german_bundesliga</item>
+        <item>@drawable/img4_italian_serie_a</item>
+        <item>@drawable/img5_spanish_la_liga</item>
+        <item>@drawable/img6_american_mayor_league</item>
+        <item>@drawable/img7_portugeuese_premiera_liga</item>
+        <item>@drawable/img8_australian_a_league</item>
+        <item>@drawable/img9_scotish_premier_league</item>
+        <item>@drawable/img10_english_league_1</item>
+    </array>
+</resources>
