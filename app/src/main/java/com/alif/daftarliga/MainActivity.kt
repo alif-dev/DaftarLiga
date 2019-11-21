@@ -1,46 +1,55 @@
 package com.alif.daftarliga
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.AnkoComponent
-import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.*
+import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 class MainActivity : AppCompatActivity() {
-    private var items: MutableList<Item> = mutableListOf()
+    private var leagues: MutableList<League> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
 
-        //val list = findViewById<RecyclerView>(R.id.club_list)
         initData()
 
-        league_list.layoutManager = GridLayoutManager(this, 2)
-        league_list.adapter = DaftarLigaAdapter(this, items) {
-            val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
-            toast.show()
-        }
+        MainActivityUI().setContentView(this)
+
+//        league_list.layoutManager = GridLayoutManager(this, 2)
+//        league_list.adapter = DaftarLigaAdapter(this, items) {
+//            val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
+//            toast.show()
+//        }
     }
 
     private fun initData() {
-        val name = resources.getStringArray(R.array.league_name)
-        val image = resources.obtainTypedArray(R.array.league_image)
-        items.clear()
+        val leagueName = resources.getStringArray(R.array.league_name)
+        val leagueImage = resources.obtainTypedArray(R.array.league_image)
+        val leagueDescription = resources.getStringArray(R.array.league_description)
 
-        for (i in name.indices) {
-            items.add(Item(name[i], image.getResourceId(i, 0)))
+        leagues.clear()
+
+        for (i in leagueName.indices) {
+            leagues.add(League(leagueName[i], leagueImage.getResourceId(i, 0), leagueDescription[i]))
         }
 
-        image.recycle()
+        // recycle the typed array
+        leagueImage.recycle()
     }
 
-//    class MainActivityUI : AnkoComponent<MainActivity> {
-//        override fun createView(ui: AnkoContext<MainActivity>): View {
-//
-//        }
-//    }
+    class MainActivityUI : AnkoComponent<MainActivity> {
+        override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
+            verticalLayout {
+                lparams(matchParent, wrapContent)
+                recyclerView {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = LeagueListAdapter(context, leagues) {
+                        startActivity<LeagueDetailActivity>("leagueData" to it)
+                    }
+                }
+            }
+        }
+    }
 }
