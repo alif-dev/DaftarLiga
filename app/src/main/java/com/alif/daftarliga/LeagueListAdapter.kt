@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+//import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.liga_item.view.*
 import org.jetbrains.anko.AnkoContext
 
 class LeagueListAdapter(private val context: Context, private val leagues: List<League>, private val listener: (League) -> Unit)
@@ -26,11 +26,12 @@ class LeagueListAdapter(private val context: Context, private val leagues: List<
         //private val name = view.findViewById<TextView>(R.id.name)
         //private val image = view.findViewById<ImageView>(R.id.image)
 
-        var img_league: ImageView = itemView.findViewById(LeagueItemUI.img_league)
+        private var imgLeague: ImageView = itemView.findViewById(LeagueItemUI.img_league)
 
         fun bindItem(items: League, listener: (League) -> Unit) {
 //            itemView.name.text = items.name
-            items.image?.let { Picasso.get().load(it).fit().into(img_league) }
+//            items.image?.let { Picasso.get().load(it).fit().into(imgLeague) }
+            Glide.with(containerView).load(items.image).into(imgLeague)
             containerView.setOnClickListener { listener(items) }
         }
     }
