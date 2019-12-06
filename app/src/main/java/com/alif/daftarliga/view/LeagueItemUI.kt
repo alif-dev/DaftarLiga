@@ -1,4 +1,4 @@
-package com.alif.daftarliga
+package com.alif.daftarliga.view
 
 import android.view.Gravity
 import android.view.View
@@ -13,14 +13,14 @@ class LeagueItemUI : AnkoComponent<ViewGroup> {
     override fun createView(ui: AnkoContext<ViewGroup>): View = with(ui) {
         verticalLayout {
             lparams(matchParent, wrapContent)
-            padding = dip(16) //test change
+            padding = dip(16)
 
             imageView {
                 id = img_league
             }.lparams {
                 height = dip(150)
                 width = dip(150)
-                gravity = Gravity.CENTER //test change
+                gravity = Gravity.CENTER
             }
         }
     }

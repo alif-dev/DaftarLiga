@@ -1,4 +1,4 @@
-package com.alif.daftarliga
+package com.alif.daftarliga.view
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,13 +7,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.alif.daftarliga.model.League
+import com.alif.daftarliga.R
 import com.bumptech.glide.Glide
 import org.jetbrains.anko.*
 
 class LeagueDetailActivity : AppCompatActivity() {
 
     private var leagueName: String = ""
-    private var leagueImg: Int = 0
+    private var leagueImg: String = ""
     private var leagueDescription: String = ""
 
     private lateinit var tvLeagueName: TextView
@@ -27,7 +29,9 @@ class LeagueDetailActivity : AppCompatActivity() {
             verticalLayout {
                 lparams(matchParent, wrapContent)
                 padding = dip(16)
-                backgroundColor = ContextCompat.getColor(context, R.color.mainBackground)
+                backgroundColor = ContextCompat.getColor(context,
+                    R.color.mainBackground
+                )
 
                 tvLeagueName = textView {
                     textSize = 24f
@@ -54,9 +58,9 @@ class LeagueDetailActivity : AppCompatActivity() {
                 val intent = intent
                 val bundle = intent.getParcelableExtra<League>("leagueData")
 
-                leagueName = bundle?.name.toString()
-                leagueImg = bundle?.image!!.toInt()
-                leagueDescription = bundle.description.toString()
+                leagueName = bundle?.leagueName.toString()
+                leagueImg = bundle?.leagueImage.toString()
+                leagueDescription = bundle?.leagueDescription.toString()
 
                 tvLeagueName.text = leagueName
                 Glide.with(context).load(leagueImg).into(imgLeague)
@@ -64,12 +68,12 @@ class LeagueDetailActivity : AppCompatActivity() {
             }
         }
 
-        // Get a support ActionBar enable the Up button
+        // enable the Up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.title_detail_liga)
     }
 
-    // back when the up button is pressed
+    // back when the Up button is pressed
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
