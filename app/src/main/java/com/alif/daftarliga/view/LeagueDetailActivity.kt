@@ -1,72 +1,63 @@
 package com.alif.daftarliga.view
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import com.alif.daftarliga.model.League
 import com.alif.daftarliga.R
+import com.alif.daftarliga.model.League
 import com.bumptech.glide.Glide
-import org.jetbrains.anko.*
+import kotlinx.android.synthetic.main.activity_league_detail.*
 
 class LeagueDetailActivity : AppCompatActivity() {
 
-    private var leagueName: String = ""
     private var leagueImg: String = ""
+    private var leagueName: String = ""
+    private var leagueAlternateName: String = ""
+    private var leagueFormedYear: String = ""
+    private var leagueFirstEvent: String = ""
+    private var leaguePlayerGender: String = ""
+    private var leagueCountry: String = ""
+    private var leagueWebsite: String = ""
+    private var leagueFacebook: String = ""
+    private var leagueTwitter: String = ""
+    private var leagueYoutube: String = ""
+    private var leagueRSSFeed: String = ""
     private var leagueDescription: String = ""
-
-    private lateinit var tvLeagueName: TextView
-    private lateinit var imgLeague: ImageView
-    private lateinit var tvLeagueDescription: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_league_detail)
 
-        scrollView {
-            verticalLayout {
-                lparams(matchParent, wrapContent)
-                padding = dip(16)
-                backgroundColor = ContextCompat.getColor(context,
-                    R.color.mainBackground
-                )
+        val intent = intent
+        val bundle = intent.getParcelableExtra<League>("leagueData")
 
-                tvLeagueName = textView {
-                    textSize = 24f
-                    textColor = Color.WHITE
-                }.lparams {
-                    gravity = Gravity.CENTER
-                }
+        leagueImg = bundle?.leagueBadge.toString()
+        leagueName = bundle?.leagueName.toString()
+        leagueAlternateName = bundle?.leagueAlternateName.toString()
+        leagueFormedYear = bundle?.leagueFormedYear.toString()
+        leagueFirstEvent = bundle?.leagueFirstEvent.toString()
+        leaguePlayerGender = bundle?.leaguePlayerGender.toString()
+        leagueCountry = bundle?.leagueCountry.toString()
+        leagueWebsite = bundle?.leagueWebsite.toString()
+        leagueFacebook = bundle?.leagueFacebook.toString()
+        leagueTwitter = bundle?.leagueTwitter.toString()
+        leagueYoutube = bundle?.leagueYoutube.toString()
+        leagueRSSFeed = bundle?.leagueRSSFeed.toString()
+        leagueDescription = bundle?.leagueDescription.toString()
 
-                imgLeague = imageView {
-                    padding = dip(16)
-                }.lparams {
-                    height = dip(325)
-                    width = dip(325)
-                    gravity = Gravity.CENTER
-                }
-
-                tvLeagueDescription = textView {
-                    textSize = 16f
-                    textColor = Color.WHITE
-                }.lparams {
-                    gravity = Gravity.CENTER
-                }
-
-                val intent = intent
-                val bundle = intent.getParcelableExtra<League>("leagueData")
-
-                leagueName = bundle?.leagueName.toString()
-                leagueImg = bundle?.leagueImage.toString()
-                leagueDescription = bundle?.leagueDescription.toString()
-
-                tvLeagueName.text = leagueName
-                Glide.with(context).load(leagueImg).into(imgLeague)
-                tvLeagueDescription.text = leagueDescription
-            }
-        }
+        Glide.with(applicationContext).load(leagueImg).into(img_league)
+        tv_league_name_big.text = leagueName
+        tv_league_name.text = leagueName
+        tv_league_alternate_name.text = leagueAlternateName
+        tv_league_formed_year.text = leagueFormedYear
+        tv_league_first_event.text = leagueFirstEvent
+        tv_league_player_gender.text = leaguePlayerGender
+        tv_league_country.text = leagueCountry
+        tv_league_website.text = leagueWebsite
+        tv_league_facebook.text = leagueFacebook
+        tv_league_twitter.text = leagueTwitter
+        tv_league_youtube.text = leagueYoutube
+        tv_league_rss_feed.text = leagueRSSFeed
+        tv_league_description.text = leagueDescription
 
         // enable the Up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detailsBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mainBackground"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_league"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/league_badge"
+                android:padding="30dp"
+                android:src="@drawable/img6_american_major_league" />
+
+            <TextView
+                android:id="@+id/tv_league_name_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="American Major League Soccer" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DADADA" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_league_name" />
+
+            <TextView
+                android:id="@+id/tv_league_name"
+                style="@style/detailsContentTextStyle"
+                tools:text="American Major League Soccer" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_league_alternate_name" />
+
+            <TextView
+                android:id="@+id/tv_league_alternate_name"
+                style="@style/detailsContentTextStyle"
+                tools:text="MLS, Major League Soccer" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_formed_year" />
+
+            <TextView
+                android:id="@+id/tv_league_formed_year"
+                style="@style/detailsContentTextStyle"
+                tools:text="1998" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_first_event" />
+
+            <TextView
+                android:id="@+id/tv_league_first_event"
+                style="@style/detailsContentTextStyle"
+                tools:text="2000-08-18" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_player_gender" />
+
+            <TextView
+                android:id="@+id/tv_league_player_gender"
+                style="@style/detailsContentTextStyle"
+                tools:text="Male" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_country" />
+
+            <TextView
+                android:id="@+id/tv_league_country"
+                style="@style/detailsContentTextStyle"
+                tools:text="England" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_website" />
+
+            <TextView
+                android:id="@+id/tv_league_website"
+                style="@style/detailsContentTextStyle"
+                tools:text="www.mlssoccer.com" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_facebook" />
+
+            <TextView
+                android:id="@+id/tv_league_facebook"
+                style="@style/detailsContentTextStyle"
+                tools:text="www.facebook.com/MLS" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_twitter" />
+
+            <TextView
+                android:id="@+id/tv_league_twitter"
+                style="@style/detailsContentTextStyle"
+                tools:text="twitter.com/mls" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_youtube" />
+
+            <TextView
+                android:id="@+id/tv_league_youtube"
+                style="@style/detailsContentTextStyle"
+                tools:text="www.youtube.com/user/mls" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_rss_feed" />
+
+            <TextView
+                android:id="@+id/tv_league_rss_feed"
+                style="@style/detailsContentTextStyle"
+                tools:text="www.mlssoccer.com/news/feed" />
+
+            <TextView
+                style="@style/detailsTitleTextStyle"
+                android:text="@string/title_description" />
+
+            <TextView
+                android:id="@+id/tv_league_description"
+                style="@style/detailsContentTextStyle"
+                tools:text="League Description" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

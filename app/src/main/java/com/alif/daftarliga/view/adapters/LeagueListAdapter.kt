@@ -1,4 +1,4 @@
-package com.alif.daftarliga.view
+package com.alif.daftarliga.view.adapters
 
 import android.content.Context
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.alif.daftarliga.model.League
+import com.alif.daftarliga.view.LeagueItemUI
 import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.AnkoContext
@@ -35,7 +36,7 @@ class LeagueListAdapter(private val context: Context, private val leagues: List<
         fun bindItem(item: League, listener: (League) -> Unit) {
 //            itemView.name.text = items.name
 //            items.image?.let { Picasso.get().load(it).fit().into(imgLeague) }
-            Glide.with(containerView).load(item.leagueImage).into(imgLeague)
+            Glide.with(containerView).load(item.leagueBadge).into(imgLeague)
             containerView.setOnClickListener { listener(item) }
         }
     }
