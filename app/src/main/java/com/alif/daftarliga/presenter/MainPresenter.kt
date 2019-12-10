@@ -17,6 +17,7 @@ class MainPresenter(
 
     fun getLeagueDataFromAPI(leagueIds: Array<String>) {
         val leagueDataList: MutableList<League> = mutableListOf()
+        view.showLoading()
         doAsync {
             for (i in leagueIds.indices) {
                 val data = gson.fromJson(
@@ -27,6 +28,7 @@ class MainPresenter(
             }
 
             uiThread {
+                view.hideLoading()
                 view.showLeagueImageGridList(leagueDataList)
             }
         }

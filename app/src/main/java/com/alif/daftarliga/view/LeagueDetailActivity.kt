@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.League
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_league_detail.*
+import kotlinx.android.synthetic.main.activity_league_details.*
+import kotlinx.android.synthetic.main.fragment_league_details.*
 
 class LeagueDetailActivity : AppCompatActivity() {
 
@@ -25,7 +26,7 @@ class LeagueDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_league_detail)
+        setContentView(R.layout.activity_league_details)
 
         val intent = intent
         val bundle = intent.getParcelableExtra<League>("leagueData")

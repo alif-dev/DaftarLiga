@@ -1,6 +1,10 @@
 package com.alif.daftarliga.view
 
 import android.os.Bundle
+import android.view.Gravity
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,20 +25,26 @@ class MainActivity : AppCompatActivity(),
     private lateinit var rvLeagueList: RecyclerView
     private lateinit var mainAdapter: LeagueListAdapter
     private lateinit var presenter: MainPresenter
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initData()
-
-        verticalLayout {
-            lparams(matchParent, wrapContent)
+        relativeLayout {
             backgroundColor = ContextCompat.getColor(context, mainBackground)
+            lparams(matchParent, matchParent)
 
             rvLeagueList = recyclerView {
                 layoutManager = GridLayoutManager(context, 2)
             }
+
+            progressBar = progressBar {
+            }.lparams {
+                centerInParent()
+            }
         }
+
+        initData()
     }
 
     private fun initData() {
@@ -47,6 +57,14 @@ class MainActivity : AppCompatActivity(),
 
         presenter = MainPresenter(this, apiRepository, gson)
         presenter.getLeagueDataFromAPI(leagueIds)
+    }
+
+    override fun showLoading() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        progressBar.visibility = View.INVISIBLE
     }
 
     override fun showLeagueImageGridList(leagueList: List<League>) {
