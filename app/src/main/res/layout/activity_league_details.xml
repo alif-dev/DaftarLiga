@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/detailsBackground"
     android:orientation="vertical">
 
@@ -40,20 +41,16 @@
         android:layout_height="1dp"
         android:background="#DADADA" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs_league_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top" />
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager_league_details"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <fragment
-        android:id="@+id/frag_league_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:name="com.alif.daftarliga.view.BlankFragment" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs_league_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@android:color/white"
+            android:layout_gravity="top" />
+    </androidx.viewpager.widget.ViewPager>
 </LinearLayout>

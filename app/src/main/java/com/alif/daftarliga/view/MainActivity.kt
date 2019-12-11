@@ -22,6 +22,9 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 class MainActivity : AppCompatActivity(),
     MainView {
+    companion object {
+        val LEAGUE_DATA_KEY = "leagueData"
+    }
     private lateinit var rvLeagueList: RecyclerView
     private lateinit var mainAdapter: LeagueListAdapter
     private lateinit var presenter: MainPresenter
@@ -72,7 +75,7 @@ class MainActivity : AppCompatActivity(),
             applicationContext,
             leagueList
         ) {
-            startActivity<LeagueDetailActivity>("leagueData" to it)
+            startActivity<LeagueDetailActivity>(LEAGUE_DATA_KEY to it)
         }
         rvLeagueList.adapter = mainAdapter
     }

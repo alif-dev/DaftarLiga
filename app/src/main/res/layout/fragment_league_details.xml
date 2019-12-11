@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/detailsBackground"
     android:orientation="vertical"
-    tools:context=".view.BlankFragment">
+    tools:context=".view.LeagueDetailsFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
