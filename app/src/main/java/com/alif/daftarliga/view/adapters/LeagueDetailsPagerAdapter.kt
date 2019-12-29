@@ -9,11 +9,6 @@ import com.alif.daftarliga.view.NextMatchFragment
 import com.alif.daftarliga.view.PreviousMatchFragment
 
 class LeagueDetailsPagerAdapter(fm: FragmentManager, private val leagueData: League?): FragmentPagerAdapter(fm) {
-    /*private val pages = listOf(
-        LeagueDetailsFragment(),
-        NextMatchFragment(),
-        PreviousMatchFragment()
-    )*/
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
