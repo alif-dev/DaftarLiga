@@ -14,8 +14,16 @@
     <string name="title_youtube">Youtube</string>
     <string name="title_rss_feed">RSS Feed</string>
     <string name="title_description">Description</string>
+    <string name="home_team_image_desc">Home team image</string>
+    <string name="away_team_image_desc">French Ligue</string>
+    <string name="msg_no_data">NO DATA</string>
+    <string name="dummy_date">Mon, 30 December 2019 | 10:00 WIB</string>
+    <string name="dummy_home_team_name">Premier League</string>
+    <string name="vs">VS</string>
+    <string name="dummy_score">0</string>
+    <string name="dummy_away_team_name">French Ligue</string>
 
-    <string-array name="league_id">
+    <string-array name="league_ids">
         <item>4328</item>
         <item>4334</item>
         <item>4331</item>

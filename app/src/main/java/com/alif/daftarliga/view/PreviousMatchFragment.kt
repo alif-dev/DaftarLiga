@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.alif.daftarliga.R
+import com.alif.daftarliga.model.Event
+import com.alif.daftarliga.view.adapters.PreviousMatchesAdapter
+import kotlinx.android.synthetic.main.fragment_previous_match.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,13 +25,13 @@ private const val ARG_PARAM2 = "param2"
  */
 class PreviousMatchFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var prevMatchList: ArrayList<Event>? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            prevMatchList = it.getParcelableArrayList(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -40,6 +44,19 @@ class PreviousMatchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_previous_match, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // if the next match list data is null or empty from the API then do not show recyclerview
+        // but show "no data" textview
+        if (!prevMatchList.isNullOrEmpty()) {
+            rv_prev_matches.layoutManager = LinearLayoutManager(activity)
+            rv_prev_matches.setHasFixedSize(true)
+            rv_prev_matches.adapter = prevMatchList?.let { PreviousMatchesAdapter(it) }
+        } else {
+            tv_no_data_prev.visibility = View.VISIBLE
+        }
+    }
 
     companion object {
         /**
@@ -52,10 +69,10 @@ class PreviousMatchFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: ArrayList<Event>?, param2: String) =
             PreviousMatchFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putParcelableArrayList(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }

@@ -16,12 +16,12 @@ object TheSportDBApi {
             .appendQueryParameter("id", leagueId)
             .build()
             .toString()
-        println("uriString = $uriString") // show data in Logcat
+        // println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id={leagueId}
-    fun getNextMatchData(leagueId: String?): String {
+    fun getNextMatchesData(leagueId: String?): String {
         val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -31,12 +31,12 @@ object TheSportDBApi {
             .appendQueryParameter("id", leagueId)
             .build()
             .toString()
-        println("uriString = $uriString") // show data in Logcat
+         println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id={leagueId}
-    fun getPreviousMatchData(leagueId: String?): String {
+    fun getPreviousMatchesData(leagueId: String?): String {
         val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -46,7 +46,7 @@ object TheSportDBApi {
             .appendQueryParameter("id", leagueId)
             .build()
             .toString()
-        println("uriString = $uriString") // show data in Logcat
+        // println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 
@@ -61,7 +61,7 @@ object TheSportDBApi {
             .appendQueryParameter("id", eventId)
             .build()
             .toString()
-        println("uriString = $uriString") // show data in Logcat
+        // println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 
@@ -76,7 +76,21 @@ object TheSportDBApi {
             .appendQueryParameter("e", eventQuery)
             .build()
             .toString()
-        println("uriString = $uriString") // show data in Logcat
+        // println("uriString = $uriString") // show uri in Logcat
+        return uriString
+    }
+
+    fun getLeagueTeams(leagueId: String?): String {
+        val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
+            .appendPath("api")
+            .appendPath("v1")
+            .appendPath("json")
+            .appendPath(BuildConfig.TSDB_API_KEY)
+            .appendPath("search_all_teams.php")
+            .appendQueryParameter("id", leagueId)
+            .build()
+            .toString()
+        // println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 }

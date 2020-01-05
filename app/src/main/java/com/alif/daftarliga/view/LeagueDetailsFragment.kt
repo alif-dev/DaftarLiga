@@ -26,19 +26,6 @@ class LeagueDetailsFragment : Fragment() {
     private var param1: League? = null
     private var param2: String? = null
 
-    private var leagueName: String = ""
-    private var leagueAlternateName: String = ""
-    private var leagueFormedYear: String = ""
-    private var leagueFirstEvent: String = ""
-    private var leaguePlayerGender: String = ""
-    private var leagueCountry: String = ""
-    private var leagueWebsite: String = ""
-    private var leagueFacebook: String = ""
-    private var leagueTwitter: String = ""
-    private var leagueYoutube: String = ""
-    private var leagueRSSFeed: String = ""
-    private var leagueDescription: String = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
