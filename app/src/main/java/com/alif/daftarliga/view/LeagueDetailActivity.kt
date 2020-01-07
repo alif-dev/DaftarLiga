@@ -23,6 +23,10 @@ class LeagueDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league_details)
 
+        // enable the Up button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.title_detail_liga)
+
         val intent = intent
         val leagueData = intent.getParcelableExtra<League>(MainActivity.LEAGUE_DATA_KEY)
         val nextMatches = intent.getParcelableExtra<EventResponse>(MainActivity.NEXT_EVENTS_DATA_KEY)
@@ -55,10 +59,6 @@ class LeagueDetailActivity : AppCompatActivity() {
 
         viewpager_league_details.adapter = LeagueDetailsPagerAdapter(supportFragmentManager, leagueData, nextMatchList, prevMatchList)
         tabs_league_details.setupWithViewPager(viewpager_league_details)
-
-        // enable the Up button
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.title_detail_liga)
     }
 
     // back when the Up button is pressed

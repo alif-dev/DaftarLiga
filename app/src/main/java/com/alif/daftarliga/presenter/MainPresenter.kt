@@ -50,7 +50,7 @@ class MainPresenter(
             uiThread {
                 mainView.hideLoading()
                 // tampilkan imageGridList sekaligus melakukan fetch semua data dari API
-                println("nextmatches: " + allLeaguesNextMatchDataList[0])
+                // println("nextmatches: " + allLeaguesNextMatchDataList[0])
                 mainView.showLeagueImageGridList(leagueDataList, allLeaguesNextMatchDataList, allLeaguesPrevMatchDataList)
             }
         }

@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity(),
         const val LEAGUE_DATA_KEY = "leagueData"
         const val NEXT_EVENTS_DATA_KEY = "nextEventsData"
         const val PREV_EVENTS_DATA_KEY = "prevEventsData"
+        const val ID_HOME_TEAM_KEY = "idHomeTeamData"
+        const val ID_AWAY_TEAM_KEY = "idAwayTeamData"
+        const val ID_EVENT_KEY = "idEventData"
     }
 
     private lateinit var rvLeagueList: RecyclerView

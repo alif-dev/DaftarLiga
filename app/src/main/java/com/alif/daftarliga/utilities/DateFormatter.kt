@@ -39,7 +39,7 @@ object DateFormatter {
             e.printStackTrace()
         }
         if (date != null) {
-            formattedDate = SimpleDateFormat("EEE, d MMMM yyyy", Locale.ENGLISH)
+            formattedDate = SimpleDateFormat("EEE, d MMM yyyy", Locale.ENGLISH)
                 .format(date)
         }
         return formattedDate

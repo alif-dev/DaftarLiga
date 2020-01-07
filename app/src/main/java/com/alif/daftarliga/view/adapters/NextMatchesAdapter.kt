@@ -1,20 +1,17 @@
 package com.alif.daftarliga.view.adapters
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.utilities.DateFormatter
-import com.bumptech.glide.Glide
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.match_item.*
+import com.alif.daftarliga.view.MainActivity
+import com.alif.daftarliga.view.MatchDetailsActivity
 
 class NextMatchesAdapter(private val nextMatchList: ArrayList<Event>)
     : RecyclerView.Adapter<NextMatchesAdapter.ViewHolder>() {
@@ -30,8 +27,8 @@ class NextMatchesAdapter(private val nextMatchList: ArrayList<Event>)
     }
 
     // class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val matchDate: TextView = view.findViewById(R.id.match_date)
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        private val matchDate: TextView = view.findViewById(R.id.tv_match_date)
         private val homeTeamName: TextView =  view.findViewById(R.id.home_team_name)
         private val awayTeamName: TextView = view.findViewById(R.id.away_team_name)
         private val homeScore: TextView = view.findViewById(R.id.home_score)
@@ -39,11 +36,21 @@ class NextMatchesAdapter(private val nextMatchList: ArrayList<Event>)
 
         @SuppressLint("SetTextI18n")
         fun bindItem(item: Event) {
-            matchDate.text = DateFormatter.formatDateToCommon(item.dateEvent) + "  " + item.strTimeLocal?.dropLast(3)
+            matchDate.text = DateFormatter.formatDateToCommon(item.dateEvent) + "  " + item.strTime?.dropLast(3)
             homeTeamName.text = item.strHomeTeam
             awayTeamName.text = item.strAwayTeam
             homeScore.text = "-"
             awayScore.text = "-"
+            view.setOnClickListener {
+                val idEvent = item.idEvent
+                val idHomeTeam = item.idHomeTeam
+                val idAwayTeam = item.idAwayTeam
+                val intent = Intent(view.context, MatchDetailsActivity::class.java)
+                intent.putExtra(MainActivity.ID_EVENT_KEY, idEvent)
+                intent.putExtra(MainActivity.ID_HOME_TEAM_KEY, idHomeTeam)
+                intent.putExtra(MainActivity.ID_AWAY_TEAM_KEY, idAwayTeam)
+                view.context.startActivity(intent)
+            }
         }
     }
 }

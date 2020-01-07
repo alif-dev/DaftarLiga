@@ -4,6 +4,333 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainBackground"
     tools:context=".view.MatchDetailsActivity">
 
+    <ProgressBar
+        android:id="@+id/pb_match_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_match_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <!--Container team images-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_team_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="@id/container_match_details"
+                app:layout_constraintStart_toStartOf="@id/container_match_details"
+                app:layout_constraintTop_toTopOf="@id/container_match_details">
+
+                <ImageView
+                    android:id="@+id/home_team_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:contentDescription="@string/home_team_image_desc"
+                    android:src="@drawable/img5_spanish_la_liga"
+                    app:layout_constraintStart_toStartOf="@id/container_team_images"
+                    app:layout_constraintTop_toTopOf="@id/container_team_images" />
+
+                <TextView
+                    android:id="@+id/home_team_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/dashed_score"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/vs_details"
+                    app:layout_constraintEnd_toStartOf="@+id/vs_details"
+                    app:layout_constraintStart_toEndOf="@+id/home_team_image"
+                    app:layout_constraintTop_toTopOf="@+id/vs_details" />
+
+                <TextView
+                    android:id="@+id/vs_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vs"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/away_team_image"
+                    app:layout_constraintStart_toEndOf="@+id/home_team_image"
+                    app:layout_constraintTop_toTopOf="@id/container_team_images" />
+
+                <TextView
+                    android:id="@+id/away_team_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/dashed_score"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/vs_details"
+                    app:layout_constraintEnd_toStartOf="@+id/away_team_image"
+                    app:layout_constraintStart_toEndOf="@+id/vs_details"
+                    app:layout_constraintTop_toTopOf="@+id/vs_details" />
+
+                <ImageView
+                    android:id="@+id/away_team_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:contentDescription="@string/away_team_image_desc"
+                    android:src="@drawable/img3_german_bundesliga"
+                    app:layout_constraintEnd_toEndOf="@id/container_team_images"
+                    app:layout_constraintTop_toTopOf="@id/container_team_images" />
+
+                <TextView
+                    android:id="@+id/home_team_name"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/dummy_home_team_name"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/home_team_image"
+                    app:layout_constraintStart_toStartOf="@+id/home_team_image"
+                    app:layout_constraintTop_toBottomOf="@+id/home_team_image" />
+
+                <TextView
+                    android:id="@+id/away_team_name"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/dummy_away_team_name"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/away_team_image"
+                    app:layout_constraintStart_toStartOf="@+id/away_team_image"
+                    app:layout_constraintTop_toBottomOf="@+id/away_team_image" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--End container team images-->
+
+            <TextView
+                android:id="@+id/tv_match_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/dummy_match_date"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/container_team_images" />
+
+            <TextView
+                android:id="@+id/tv_title_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:gravity="center"
+                android:text="@string/title_team_name"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_match_date"
+                app:layout_constraintStart_toStartOf="@+id/tv_match_date"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_date" />
+
+            <TextView
+                android:id="@+id/tv_title_home_team"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:text="@string/title_home_team"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/tv_match_date"
+                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_date" />
+
+            <TextView
+                android:id="@+id/tv_title_away_team"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:text="@string/title_away_team"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toEndOf="@+id/tv_match_date"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_date" />
+
+            <TextView
+                android:id="@+id/tv_dtl_home_team_name"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dummy_dtl_home_team_name"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_title_team_name"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_home_team"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_home_team" />
+
+            <TextView
+                android:id="@+id/tv_dtl_away_team_name"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dummy_dtl_away_team_name"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_title_team_name"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_away_team"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_away_team" />
+
+            <TextView
+                android:id="@+id/tv_title_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/title_score"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_team_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_team_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_team_name" />
+
+            <TextView
+                android:id="@+id/tv_home_score"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dummy_home_score"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_title_score"
+                app:layout_constraintEnd_toEndOf="@+id/tv_dtl_home_team_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_dtl_home_team_name" />
+
+            <TextView
+                android:id="@+id/tv_away_score"
+                android:layout_width="100dp"
+                android:layout_height="19dp"
+                android:gravity="center"
+                android:text="@string/dummy_away_score"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_title_score"
+                app:layout_constraintEnd_toEndOf="@+id/tv_dtl_away_team_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_dtl_away_team_name" />
+
+            <TextView
+                android:id="@+id/tv_title_round"
+                android:layout_width="52dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/title_round"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_score"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_score"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_score" />
+
+            <TextView
+                android:id="@+id/tv_away_round"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="@string/dummy_away_team_round"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="@+id/tv_away_score"
+                app:layout_constraintStart_toStartOf="@+id/tv_away_score"
+                app:layout_constraintTop_toBottomOf="@+id/tv_away_score" />
+
+            <TextView
+                android:id="@+id/tv_home_round"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="@string/dummy_home_team_round"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="@+id/tv_home_score"
+                app:layout_constraintStart_toStartOf="@+id/tv_home_score"
+                app:layout_constraintTop_toBottomOf="@+id/tv_home_score" />
+
+            <TextView
+                android:id="@+id/tv_title_dtl_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/title_description"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_round"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_round"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_round" />
+
+            <TextView
+                android:id="@+id/tv_match_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/dummy_match_description"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_dtl_description"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_dtl_description"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_dtl_description" />
+
+            <TextView
+                android:id="@+id/tv_match_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/dummy_match_time"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="@+id/tv_match_date"
+                app:layout_constraintStart_toStartOf="@+id/tv_match_date"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_date" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

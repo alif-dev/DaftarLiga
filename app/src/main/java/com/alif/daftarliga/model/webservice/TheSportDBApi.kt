@@ -31,7 +31,7 @@ object TheSportDBApi {
             .appendQueryParameter("id", leagueId)
             .build()
             .toString()
-         println("uriString = $uriString") // show uri in Logcat
+         // println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 
@@ -80,6 +80,7 @@ object TheSportDBApi {
         return uriString
     }
 
+    // get all teams in a league
     fun getLeagueTeams(leagueId: String?): String {
         val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
@@ -88,6 +89,21 @@ object TheSportDBApi {
             .appendPath(BuildConfig.TSDB_API_KEY)
             .appendPath("search_all_teams.php")
             .appendQueryParameter("id", leagueId)
+            .build()
+            .toString()
+        // println("uriString = $uriString") // show uri in Logcat
+        return uriString
+    }
+
+    // https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id={teamId}
+    fun getTeamDetails(teamId: String?): String {
+        val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
+            .appendPath("api")
+            .appendPath("v1")
+            .appendPath("json")
+            .appendPath(BuildConfig.TSDB_API_KEY)
+            .appendPath("lookupteam.php")
+            .appendQueryParameter("id", teamId)
             .build()
             .toString()
         // println("uriString = $uriString") // show uri in Logcat
