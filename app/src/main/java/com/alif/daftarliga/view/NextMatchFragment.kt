@@ -2,16 +2,14 @@ package com.alif.daftarliga.view
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
-import com.alif.daftarliga.view.adapters.NextMatchesAdapter
+import com.alif.daftarliga.view.adapters.MatchesAdapter
 import kotlinx.android.synthetic.main.fragment_next_match.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,7 +51,7 @@ class NextMatchFragment : Fragment() {
         if (!nextMatchList.isNullOrEmpty()) {
             rv_next_matches.layoutManager = LinearLayoutManager(activity)
             rv_next_matches.setHasFixedSize(true)
-            rv_next_matches.adapter = nextMatchList?.let { NextMatchesAdapter(it) }!!
+            rv_next_matches.adapter = nextMatchList?.let { MatchesAdapter(it) }!!
         } else {
             tv_no_data_next.visibility = View.VISIBLE
         }

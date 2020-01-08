@@ -1,9 +1,8 @@
 package com.alif.daftarliga.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.net.toUri
+import androidx.appcompat.app.AppCompatActivity
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.model.webservice.ApiRepository
@@ -13,7 +12,6 @@ import com.alif.daftarliga.view.viewinterfaces.MatchDetailsView
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_match_details.*
-import org.jetbrains.anko.image
 
 class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
     private lateinit var matchDetailsPresenter: MatchDetailsPresenter

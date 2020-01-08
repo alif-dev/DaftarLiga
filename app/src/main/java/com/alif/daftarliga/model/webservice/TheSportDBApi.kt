@@ -66,7 +66,7 @@ object TheSportDBApi {
     }
 
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/searchevents.php?e={eventQuery}
-    fun searchEvent(eventQuery: String?): String {
+    fun searchMatch(eventQuery: String?): String {
         val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -76,7 +76,7 @@ object TheSportDBApi {
             .appendQueryParameter("e", eventQuery)
             .build()
             .toString()
-        // println("uriString = $uriString") // show uri in Logcat
+         println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 

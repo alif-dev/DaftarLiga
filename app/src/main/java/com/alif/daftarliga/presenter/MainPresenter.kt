@@ -24,12 +24,12 @@ class MainPresenter(
         mainView.showLoading()
         doAsync {
             for (i in leagueIds.indices) {
-                val leagueApiData = gson.fromJson(
+                val leagueAPIData = gson.fromJson(
                     apiRepository.doRequest(TheSportDBApi.getLeagueData(leagueIds[i])),
                     LeagueResponse::class.java
                 )
 
-                val nextMatchEventsApiData = gson.fromJson(
+                val nextMatchEventsAPIData = gson.fromJson(
                     apiRepository.doRequest(TheSportDBApi.getNextMatchesData(leagueIds[i])),
                     EventResponse::class.java
                 )
@@ -42,8 +42,8 @@ class MainPresenter(
                 // data API yang diambil dan di-add ke dalam list adalah yang bernama leagues (hasil dari response API (LeagueResponse.kt))
                 // dan index-nya adalah data ke-0 karena memang hasil response dari API-nya hanya 1 data (data detail dari satu Liga)
                 // jadi, dengan kata lain setiap leagueId memiliki satu league (details)
-                leagueDataList.add(leagueApiData.leagues[0])
-                allLeaguesNextMatchDataList.add(nextMatchEventsApiData)
+                leagueDataList.add(leagueAPIData.leagues[0])
+                allLeaguesNextMatchDataList.add(nextMatchEventsAPIData)
                 allLeaguesPrevMatchDataList.add(previousMatchesAPIData)
             }
 

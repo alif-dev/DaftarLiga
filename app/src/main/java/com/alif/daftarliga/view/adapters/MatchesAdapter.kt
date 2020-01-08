@@ -13,20 +13,19 @@ import com.alif.daftarliga.utilities.DateFormatter
 import com.alif.daftarliga.view.MainActivity
 import com.alif.daftarliga.view.MatchDetailsActivity
 
-class NextMatchesAdapter(private val nextMatchList: ArrayList<Event>)
-    : RecyclerView.Adapter<NextMatchesAdapter.ViewHolder>() {
+class MatchesAdapter(private val matchList: ArrayList<Event>)
+    : RecyclerView.Adapter<MatchesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.match_item, parent, false))
     }
 
-    override fun getItemCount(): Int = nextMatchList.size
+    override fun getItemCount(): Int = matchList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(nextMatchList[position])
+        holder.bindItem(matchList[position])
     }
 
-    // class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val matchDate: TextView = view.findViewById(R.id.tv_match_date)
         private val homeTeamName: TextView =  view.findViewById(R.id.home_team_name)
@@ -39,8 +38,8 @@ class NextMatchesAdapter(private val nextMatchList: ArrayList<Event>)
             matchDate.text = DateFormatter.formatDateToCommon(item.dateEvent) + "  " + item.strTime?.dropLast(3)
             homeTeamName.text = item.strHomeTeam
             awayTeamName.text = item.strAwayTeam
-            homeScore.text = "-"
-            awayScore.text = "-"
+            if (item.intHomeScore.isNullOrBlank()) homeScore.text = "-" else homeScore.text = item.intHomeScore
+            if (item.intAwayScore.isNullOrBlank()) awayScore.text = "-" else awayScore.text = item.intAwayScore
             view.setOnClickListener {
                 val idEvent = item.idEvent
                 val idHomeTeam = item.idHomeTeam

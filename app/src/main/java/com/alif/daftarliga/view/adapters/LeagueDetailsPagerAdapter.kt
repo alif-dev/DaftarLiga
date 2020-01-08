@@ -8,6 +8,7 @@ import com.alif.daftarliga.model.League
 import com.alif.daftarliga.view.LeagueDetailsFragment
 import com.alif.daftarliga.view.NextMatchFragment
 import com.alif.daftarliga.view.PreviousMatchFragment
+import com.alif.daftarliga.view.SearchMatchFragment
 
 class LeagueDetailsPagerAdapter(fm: FragmentManager, private val leagueData: League?,
                                 private val nextMatchList: ArrayList<Event>?,
@@ -17,19 +18,21 @@ class LeagueDetailsPagerAdapter(fm: FragmentManager, private val leagueData: Lea
         return when (position) {
             0 -> LeagueDetailsFragment.newInstance(leagueData, "")
             1 -> NextMatchFragment.newInstance(nextMatchList, "")
-            else -> PreviousMatchFragment.newInstance(prevMatchList,"")
+            2 -> PreviousMatchFragment.newInstance(prevMatchList,"")
+            else -> SearchMatchFragment.newInstance("", "")
         }
     }
 
     override fun getCount(): Int {
-        return 3
+        return 4
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             0 -> "Details"
             1 -> "Next Match"
-            else -> "Previous Match"
+            2 -> "Previous Match"
+            else -> "Search Match"
         }
     }
 }

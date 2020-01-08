@@ -16,14 +16,14 @@
     <string name="title_description">Description</string>
     <string name="home_team_image_desc">Home team image</string>
     <string name="away_team_image_desc">French Ligue</string>
-    <string name="msg_no_data">NO DATA</string>
+    <string name="no_data">NO DATA</string>
     <string name="dummy_date">Mon, 30 Dec 2019  10:00 WIB</string>
     <string name="dummy_home_team_name">Premier League</string>
     <string name="vs">VS</string>
     <string name="dummy_score">0</string>
     <string name="dummy_away_team_name">French Ligue</string>
     <string name="dashed_score">-</string>
-    <string name="title_match_details">Match Details</string>
+    <string name="title_match_details">Detail Pertandingan</string>
     <string name="no_description">No description yet</string>
     <string name="dummy_match_description">match description</string>
     <string name="dummy_home_team_round">home team round</string>
@@ -52,4 +52,8 @@
         <item>4330</item>
         <item>4396</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_menu_search">Search</string>
 </resources>

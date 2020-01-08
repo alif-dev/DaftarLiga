@@ -6,14 +6,8 @@ import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.model.EventResponse
 import com.alif.daftarliga.model.League
-import com.alif.daftarliga.model.webservice.ApiRepository
-import com.alif.daftarliga.presenter.NextMatchesPresenter
-import com.alif.daftarliga.presenter.PreviousMatchesPresenter
 import com.alif.daftarliga.view.adapters.LeagueDetailsPagerAdapter
-import com.alif.daftarliga.view.viewinterfaces.NextMatchesView
-import com.alif.daftarliga.view.viewinterfaces.PreviousMatchesView
 import com.bumptech.glide.Glide
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_league_details.*
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun hideLoading() {
-        progressBar.visibility = View.INVISIBLE
+        progressBar.visibility = View.GONE
     }
 
     override fun showLeagueImageGridList(leagueList: List<League>, allLeaguesNextMatchList: ArrayList<EventResponse>, allLeaguesPrevMatchList: ArrayList<EventResponse>) {
