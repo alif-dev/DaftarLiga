@@ -22,12 +22,11 @@ class SearchMatchPresenter(
                 apiRepository.doRequest(TheSportDBApi.searchMatch(query)),
                 EventResponse2::class.java
             )
-            println("searchedMaches: " + searchedMatchAPIData.event[0].strHomeTeam)
+            // println("searchedMaches: " + searchedMatchAPIData.event[0].strHomeTeam) // show fetched API data in Logcat
             searchedMatchDataList.add(searchedMatchAPIData)
 
             uiThread {
                 searchMatchView.hideLoading()
-                // println("searchedMaches: " + searchedMatchDataList.events[0].strHomeTeam)
                 searchMatchView.showSearchedMatches(searchedMatchDataList)
             }
         }

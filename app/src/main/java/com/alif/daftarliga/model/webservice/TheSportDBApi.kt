@@ -76,7 +76,7 @@ object TheSportDBApi {
             .appendQueryParameter("e", eventQuery)
             .build()
             .toString()
-         println("uriString = $uriString") // show uri in Logcat
+         // println("uriString = $uriString") // show uri in Logcat
         return uriString
     }
 

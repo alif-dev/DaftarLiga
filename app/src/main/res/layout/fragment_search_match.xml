@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_red_dark"
         android:queryHint="Masukkan nama-nama tim"
-        android:searchIcon="@drawable/ic_search_white_24dp">
-    </SearchView>
+        android:queryBackground="@android:color/white"
+        android:searchIcon="@drawable/ic_search_white_24dp"></SearchView>
 
     <FrameLayout
         android:layout_width="match_parent"

@@ -69,6 +69,8 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
         return true
     }
 
+    override fun onQueryTextChange(newText: String?): Boolean = false
+
     override fun showLoading() {
         pb_search_match.visibility = View.VISIBLE
     }
@@ -86,13 +88,13 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
             for (element in searchedMatchListObject.event) {
                 searchedMatchListData?.add(element)
             }
-            rv_searched_matches.adapter = searchedMatchListData?.let { MatchesAdapter2(it) }
+            val soccerMatchList: List<Event2>? = searchedMatchListData?.filter { event2 -> event2.strSport == "Soccer" }
+            rv_searched_matches.adapter = soccerMatchList?.let { MatchesAdapter2(ArrayList(it)) }
         } else {
             tv_no_data_search.visibility = View.VISIBLE
         }
     }
 
-    override fun onQueryTextChange(newText: String?): Boolean = false
 
     companion object {
         /**
