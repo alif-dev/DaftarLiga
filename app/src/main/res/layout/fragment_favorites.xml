@@ -5,44 +5,25 @@
     android:layout_height="match_parent"
     android:background="@color/mainBackground"
     android:orientation="vertical"
-    tools:context=".view.SearchMatchFragment">
+    tools:context=".view.FavoriteFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_search_matches"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="16dp"
+        android:text="@string/title_favorite_match_list"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:textAlignment="center" />
-
-    <SearchView
-        android:id="@+id/search_view_match"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:queryBackground="@android:color/white"
-        android:queryHint="Masukkan nama-nama tim"
-        android:searchIcon="@drawable/ic_search_white_24dp">
-
-        <requestFocus />
-    </SearchView>
+        android:textStyle="bold" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ProgressBar
-            android:id="@+id/pb_search_match"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_no_data_search"
+            android:id="@+id/tv_no_data_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -53,10 +34,9 @@
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_searched_matches"
+            android:id="@+id/rv_favorite_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             tools:listitem="@layout/match_item" />
     </FrameLayout>
 </LinearLayout>

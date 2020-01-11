@@ -20,7 +20,7 @@
     <string name="dummy_date">Mon, 30 Dec 2019  10:00 WIB</string>
     <string name="dummy_home_team_name">Premier League</string>
     <string name="vs">VS</string>
-    <string name="dummy_score">0</string>
+    <string name="dummy_score">-</string>
     <string name="dummy_away_team_name">French Ligue</string>
     <string name="dashed_score">-</string>
     <string name="title_match_details">Detail Pertandingan</string>
@@ -39,6 +39,11 @@
     <string name="title_home_team">Home Team</string>
     <string name="title_team_name">Team Name</string>
     <string name="dummy_dtl_away_team_name">away team name</string>
+    <string name="title_search_matches">Search Match</string>
+    <string name="title_menu_favorite">Add as Favorite</string>
+    <string name="toast_deleted_from_favorite">Pertandingan ini telah dihapus dari daftar favorit!</string>
+    <string name="toast_added_as_favorite">Pertandingan ini telah ditambahkan ke daftar favorit.</string>
+    <string name="title_favorite_match_list">Favorite Match List</string>
 
     <string-array name="league_ids">
         <item>4328</item>
@@ -52,6 +57,4 @@
         <item>4330</item>
         <item>4396</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
 </resources>

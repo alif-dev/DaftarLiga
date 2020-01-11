@@ -1,26 +1,12 @@
 package com.alif.daftarliga.view
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.alif.daftarliga.R.array.league_ids
-import com.alif.daftarliga.R.color.mainBackground
-import com.alif.daftarliga.model.EventResponse
-import com.alif.daftarliga.model.League
-import com.alif.daftarliga.model.webservice.ApiRepository
-import com.alif.daftarliga.presenter.MainPresenter
-import com.alif.daftarliga.view.adapters.LeagueListAdapter
-import com.alif.daftarliga.view.viewinterfaces.MainView
-import com.google.gson.Gson
-import org.jetbrains.anko.*
-import org.jetbrains.anko.recyclerview.v7.recyclerView
+import com.alif.daftarliga.R
+import com.alif.daftarliga.view.adapters.MainPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),
-    MainView {
+class MainActivity : AppCompatActivity() {
     companion object {
         const val LEAGUE_DATA_KEY = "leagueData"
         const val NEXT_EVENTS_DATA_KEY = "nextEventsData"
@@ -30,53 +16,15 @@ class MainActivity : AppCompatActivity(),
         const val ID_EVENT_KEY = "idEventData"
     }
 
-    private lateinit var rvLeagueList: RecyclerView
-    private lateinit var progressBar: ProgressBar
-    private lateinit var mainAdapter: LeagueListAdapter
-    private lateinit var leaguePresenter: MainPresenter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        relativeLayout {
-            backgroundColor = ContextCompat.getColor(context, mainBackground)
-            lparams(matchParent, matchParent)
-
-            rvLeagueList = recyclerView {
-                layoutManager = GridLayoutManager(context, 2)
-            }
-
-            progressBar = progressBar {
-            }.lparams {
-                centerInParent()
-            }
-        }
-
-        initData()
-    }
-
-    private fun initData() {
-
-        val apiRepository = ApiRepository()
-        val gson = Gson()
-
-        // get league ids from typed Array
-        val leagueIds = resources.getStringArray(league_ids)
-
-        leaguePresenter = MainPresenter(this, apiRepository, gson)
-        leaguePresenter.getLeagueDataFromAPI(leagueIds)
-    }
-
-    override fun showLoading() {
-        progressBar.visibility = View.VISIBLE
-    }
-
-    override fun hideLoading() {
-        progressBar.visibility = View.GONE
-    }
-
-    override fun showLeagueImageGridList(leagueList: List<League>, allLeaguesNextMatchList: ArrayList<EventResponse>, allLeaguesPrevMatchList: ArrayList<EventResponse>) {
-        mainAdapter = LeagueListAdapter(this, leagueList, allLeaguesNextMatchList, allLeaguesPrevMatchList)
-        rvLeagueList.adapter = mainAdapter
+        main_view_pager.adapter = MainPagerAdapter(supportFragmentManager)
+        main_view_pager.offscreenPageLimit = 5
+        main_tabs.setupWithViewPager(main_view_pager)
+        main_tabs.getTabAt(0)?.setIcon(R.drawable.sports_soccer_white_24dp)
+        main_tabs.getTabAt(1)?.setIcon(R.drawable.ic_star_white_24dp)
+        main_tabs.getTabAt(2)?.setIcon(R.drawable.ic_search_white_24dp)
     }
 }

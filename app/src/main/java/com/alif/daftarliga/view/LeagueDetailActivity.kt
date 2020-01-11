@@ -48,7 +48,7 @@ class LeagueDetailActivity : AppCompatActivity() {
             prevMatchList = null
         }
 
-        Glide.with(applicationContext).load(leagueData?.leagueBadge).into(img_league)
+        Glide.with(applicationContext).load(leagueData?.leagueBadge).into(img_league_detail)
         tv_league_name_big.text = leagueData?.leagueName
 
         viewpager_league_details.adapter = LeagueDetailsPagerAdapter(supportFragmentManager, leagueData, nextMatchList, prevMatchList)

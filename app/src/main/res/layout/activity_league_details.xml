@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/img_league"
+            android:id="@+id/img_league_detail"
             android:layout_width="match_parent"
             android:layout_height="165dp"
             android:contentDescription="@string/league_badge"
