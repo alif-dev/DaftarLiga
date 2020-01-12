@@ -71,6 +71,7 @@ class FavoriteFragment : Fragment() {
 
     }
 
+    // refresh the fragment when opened
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (isVisibleToUser) {

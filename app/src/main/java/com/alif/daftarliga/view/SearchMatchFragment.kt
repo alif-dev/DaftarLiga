@@ -80,17 +80,32 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
     }
 
     override fun showSearchedMatches(searchedMatchList: ArrayList<EventResponse2>) {
-        // if the next match list data is null or empty from the API then do not show recyclerview
-        // but show "NO DATA" textview
-        if (!searchedMatchList.isNullOrEmpty()) {
-            val searchedMatchListObject: EventResponse2 = searchedMatchList[0]
-            val searchedMatchListData: ArrayList<Event2>? = ArrayList()
+        val searchedMatchListObject: EventResponse2 = searchedMatchList[0]
+        val searchedMatchListData: ArrayList<Event2>? = ArrayList()
+        // if the searched match list data is null or empty from the API then do not show recyclerview
+        // but show "NO DATA" textview but the opposite if the data is not null or empty
+        if (!searchedMatchListObject.event.isNullOrEmpty()) {
+            tv_no_data_search.visibility = View.GONE
+            // extract elements in EventResponse2 to list
             for (element in searchedMatchListObject.event) {
                 searchedMatchListData?.add(element)
             }
-            val soccerMatchList: List<Event2>? = searchedMatchListData?.filter { event2 -> event2.strSport == "Soccer" }
-            rv_searched_matches.adapter = soccerMatchList?.let { MatchesAdapter2(ArrayList(it)) }
+
+            // filter the match list for only Soccer type matches
+            val soccerMatchList: List<Event2>? =
+                searchedMatchListData?.filter { event2 -> event2.strSport == "Soccer" }
+
+            // if the soccer match list data is null or empty then do not show recyclerview
+            // but show "NO DATA" textview but the opposite if the data is not null or empty
+            if (!soccerMatchList.isNullOrEmpty()) {
+                tv_no_data_search.visibility = View.GONE
+                rv_searched_matches.adapter = MatchesAdapter2(ArrayList(soccerMatchList))
+            } else {
+                rv_searched_matches.adapter = null
+                tv_no_data_search.visibility = View.VISIBLE
+            }
         } else {
+            rv_searched_matches.adapter = null
             tv_no_data_search.visibility = View.VISIBLE
         }
     }
