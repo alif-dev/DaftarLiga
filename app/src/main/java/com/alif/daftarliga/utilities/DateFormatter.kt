@@ -10,26 +10,6 @@ import java.util.*
 @SuppressLint("SimpleDateFormat")
 object DateFormatter {
 
-    fun formatDateToLocal(dateString: String?): String {
-        var date: Date? = null
-        var formattedDate = "N/A"
-        try {
-            date = SimpleDateFormat("yyyy-MM-dd").parse(dateString)
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        }
-        if (date != null) {
-            val localeIndonesia = Locale("in", "ID")
-            formattedDate = if (Locale.getDefault() == localeIndonesia) {
-                SimpleDateFormat("EEE, d MMMM yyyy", localeIndonesia).format(date)
-            } else {
-                SimpleDateFormat("MMMM d, yyyy", Locale.getDefault())
-                    .format(date)
-            }
-        }
-        return formattedDate
-    }
-
     fun formatDateToCommon(dateString: String?): String {
         var date: Date? = null
         var formattedDate = "N/A"

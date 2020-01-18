@@ -1,0 +1,11 @@
+Instrumentation Test
+1. Aplikasi terbuka
+2. Memastikan main tab layout yang berisi fragment daftar liga, fragment favorit, dan fragment search match telah ditampilkan
+3. Membuka fragment search match dengan mengklik tab "Search"
+4. Memastikan bahwa searchview telah ditampilkan
+5. Melakukan klik pada icon search
+6. Mengetikkan nama tim sepak bola yaitu "Liverpool" pada field searchview kemudian menekan tombol search/enter
+7. Memastikan bahwa recyclerview telah ditampilkan
+8. Melakukan scroll pada recyclerview ke posisi ke-8
+9. Melakukan klik item posisi ke-8 dari recyclerview
+10. Melakukan klik pada Up button untuk kembali ke fragment search match

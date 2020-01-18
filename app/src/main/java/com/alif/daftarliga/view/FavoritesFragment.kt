@@ -68,13 +68,12 @@ class FavoriteFragment : Fragment() {
             }
             else tv_no_data_favorite.visibility = View.VISIBLE
         }
-
     }
 
-    // refresh the fragment when opened
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (isVisibleToUser) {
+            // refresh the fragment when opened (detach and attach it again)
             fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
         }
     }

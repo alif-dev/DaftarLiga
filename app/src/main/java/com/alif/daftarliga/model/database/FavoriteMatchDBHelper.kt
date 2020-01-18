@@ -41,6 +41,6 @@ class FavoriteMatchDBHelper(ctx: Context): ManagedSQLiteOpenHelper(ctx, "Favorit
 }
 
 // access property for context
-// this must be defined outside DBHelper scope
+// IMPORTANT: this must be defined outside DBHelper scope
 val Context.database: FavoriteMatchDBHelper
     get() = FavoriteMatchDBHelper.getInstance(applicationContext)

@@ -7,7 +7,7 @@ object TheSportDBApi {
 
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id={leagueId}
     fun getLeagueData(leagueId: String?): String {
-        val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
             .appendPath("json")
@@ -16,13 +16,11 @@ object TheSportDBApi {
             .appendQueryParameter("id", leagueId)
             .build()
             .toString()
-        // println("uriString = $uriString") // show uri in Logcat
-        return uriString
     }
 
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id={leagueId}
     fun getNextMatchesData(leagueId: String?): String {
-        val uriString = Uri.parse(BuildConfig.BASE_URL).buildUpon()
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
             .appendPath("json")
@@ -31,8 +29,6 @@ object TheSportDBApi {
             .appendQueryParameter("id", leagueId)
             .build()
             .toString()
-         // println("uriString = $uriString") // show uri in Logcat
-        return uriString
     }
 
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id={leagueId}

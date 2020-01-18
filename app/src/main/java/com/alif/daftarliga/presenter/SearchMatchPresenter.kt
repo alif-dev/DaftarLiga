@@ -5,8 +5,9 @@ import com.alif.daftarliga.model.webservice.ApiRepository
 import com.alif.daftarliga.model.webservice.TheSportDBApi
 import com.alif.daftarliga.view.viewinterfaces.SearchMatchView
 import com.google.gson.Gson
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SearchMatchPresenter(
     private val searchMatchView: SearchMatchView,
@@ -17,18 +18,17 @@ class SearchMatchPresenter(
         val searchedMatchDataList: ArrayList<EventResponse2> = ArrayList()
 
         searchMatchView.showLoading()
-        doAsync {
+        // using Kotlin Coroutines
+        GlobalScope.launch(Dispatchers.Main) {
             val searchedMatchAPIData = gson.fromJson(
-                apiRepository.doRequest(TheSportDBApi.searchMatch(query)),
+                apiRepository.doRequestCoroutines(TheSportDBApi.searchMatch(query)).await(),
                 EventResponse2::class.java
             )
-            // println("searchedMaches: " + searchedMatchAPIData.event[0].strHomeTeam) // show fetched API data in Logcat
+            // println("searchedMatches: " + searchedMatchAPIData.event[0].strHomeTeam) // show fetched API data in Logcat
             searchedMatchDataList.add(searchedMatchAPIData)
 
-            uiThread {
-                searchMatchView.hideLoading()
-                searchMatchView.showSearchedMatches(searchedMatchDataList)
-            }
+            searchMatchView.hideLoading()
+            searchMatchView.showSearchedMatches(searchedMatchDataList)
         }
     }
 }

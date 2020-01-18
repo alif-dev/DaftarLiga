@@ -121,6 +121,7 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
         this.menu = menu
         menuInflater.inflate(R.menu.menu_match_details, menu)
         // check whether the match data is already in FavoriteMatch database or not
+        // and then change the favorite icon based on that condition
         checkFavoriteStateAndChangeIcon()
         return super.onCreateOptionsMenu(menu)
     }
