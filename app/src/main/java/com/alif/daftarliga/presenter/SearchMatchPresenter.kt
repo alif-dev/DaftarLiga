@@ -6,7 +6,6 @@ import com.alif.daftarliga.model.webservice.TheSportDBApi
 import com.alif.daftarliga.utilities.CoroutineContextProvider
 import com.alif.daftarliga.view.viewinterfaces.SearchMatchView
 import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

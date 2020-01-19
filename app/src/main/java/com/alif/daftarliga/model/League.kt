@@ -8,6 +8,7 @@ import kotlinx.android.parcel.Parcelize
 data class League (
     @SerializedName("idLeague") var leagueId: String? = null,
     @SerializedName("idSoccerXML") var leagueIdSoccerXML: String? = null,
+    @SerializedName("idAPIfootball") val idAPIfootball : String? = null,
     @SerializedName("strSport") var leagueSportType: String? = null,
     @SerializedName("strLeague") var leagueName: String? = null,
     @SerializedName("strLeagueAlternate") var leagueAlternateName: String? = null,

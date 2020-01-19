@@ -1,9 +1,8 @@
 package com.alif.daftarliga.utilities
 
 import com.alif.daftarliga.utilities.DateFormatter.formatDateToCommon
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class DateFormatterTest {
 

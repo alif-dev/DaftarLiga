@@ -1,8 +1,6 @@
 package com.alif.daftarliga.model.webservice
 
 import org.junit.Test
-
-import org.junit.Assert.*
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 

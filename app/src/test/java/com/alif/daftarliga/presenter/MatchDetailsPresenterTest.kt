@@ -1,18 +1,17 @@
 package com.alif.daftarliga.presenter
 
-import com.alif.daftarliga.utilities.TestContextProvider
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.model.EventResponse
 import com.alif.daftarliga.model.Team
 import com.alif.daftarliga.model.TeamResponse
 import com.alif.daftarliga.model.webservice.ApiRepository
+import com.alif.daftarliga.utilities.TestContextProvider
 import com.alif.daftarliga.view.viewinterfaces.MatchDetailsView
 import com.google.gson.Gson
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.runBlocking
-import org.junit.Test
-
 import org.junit.Before
+import org.junit.Test
 import org.mockito.ArgumentMatchers
 import org.mockito.Mock
 import org.mockito.Mockito
