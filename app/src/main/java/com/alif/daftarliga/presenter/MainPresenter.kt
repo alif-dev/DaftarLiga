@@ -5,15 +5,19 @@ import com.alif.daftarliga.model.League
 import com.alif.daftarliga.model.LeagueResponse
 import com.alif.daftarliga.model.webservice.ApiRepository
 import com.alif.daftarliga.model.webservice.TheSportDBApi
+import com.alif.daftarliga.utilities.CoroutineContextProvider
 import com.alif.daftarliga.view.viewinterfaces.MainView
 import com.google.gson.Gson
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
 class MainPresenter(
     private val mainView: MainView,
     private val apiRepository: ApiRepository,
-    private val gson: Gson
+    private val gson: Gson,
+    private val context: CoroutineContextProvider = CoroutineContextProvider()
 ) {
 
     fun getLeagueDataFromAPI(leagueIds: Array<String>) {
@@ -22,20 +26,20 @@ class MainPresenter(
         val allLeaguesPrevMatchDataList: ArrayList<EventResponse> = ArrayList()
 
         mainView.showLoading()
-        doAsync {
+        GlobalScope.launch(context.main) {
             for (i in leagueIds.indices) {
                 val leagueAPIData = gson.fromJson(
-                    apiRepository.doRequest(TheSportDBApi.getLeagueData(leagueIds[i])),
+                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getLeagueData(leagueIds[i])).await(),
                     LeagueResponse::class.java
                 )
 
                 val nextMatchEventsAPIData = gson.fromJson(
-                    apiRepository.doRequest(TheSportDBApi.getNextMatchesData(leagueIds[i])),
+                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getNextMatchesData(leagueIds[i])).await(),
                     EventResponse::class.java
                 )
 
                 val previousMatchesAPIData = gson.fromJson(
-                    apiRepository.doRequest(TheSportDBApi.getPreviousMatchesData(leagueIds[i])),
+                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getPreviousMatchesData(leagueIds[i])).await(),
                     EventResponse::class.java
                 )
 
@@ -47,12 +51,10 @@ class MainPresenter(
                 allLeaguesPrevMatchDataList.add(previousMatchesAPIData)
             }
 
-            uiThread {
-                mainView.hideLoading()
-                // tampilkan imageGridList sekaligus melakukan fetch semua data dari API
-                // println("nextmatches: " + allLeaguesNextMatchDataList[0])
-                mainView.showLeagueImageGridList(leagueDataList, allLeaguesNextMatchDataList, allLeaguesPrevMatchDataList)
-            }
+            mainView.hideLoading()
+            // tampilkan imageGridList sekaligus melakukan fetch semua data dari API
+            // println("nextmatches: " + allLeaguesNextMatchDataList[0])
+            mainView.showLeagueImageGridList(leagueDataList, allLeaguesNextMatchDataList, allLeaguesPrevMatchDataList)
         }
     }
 }
