@@ -10,8 +10,6 @@ import com.alif.daftarliga.view.viewinterfaces.MainView
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 
 class MainPresenter(
     private val mainView: MainView,
