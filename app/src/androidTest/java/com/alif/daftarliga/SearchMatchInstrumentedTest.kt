@@ -10,6 +10,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.alif.daftarliga.R.id.*
 import com.alif.daftarliga.view.MainActivity
+import org.hamcrest.Matchers
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,13 +26,19 @@ class SearchMatchInstrumentedTest {
         onView(withId(main_tabs))
         onView(withText("Search")).perform(click())
         onView(withId(search_view_match))
-        onView(withContentDescription("Mencari")).perform(click())
+        val appCompatImageView = onView(
+            Matchers.allOf(
+                withClassName(Matchers.`is`("androidx.appcompat.widget.AppCompatImageView")),
+                withContentDescription("Search")
+            )
+        )
+        appCompatImageView.perform(click())
         onView(withId(search_view_match))
             .perform(typeText("Liverpool"))
             .perform(pressKey(KeyEvent.KEYCODE_ENTER))
         onView(withId(rv_searched_matches))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
             .perform(click())
-        onView(withContentDescription("Kembali ke atas")).perform(click())
+        onView(withContentDescription("Navigate up")).perform(click())
     }
 }
