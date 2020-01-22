@@ -1,49 +1,51 @@
 <resources>
     <string name="app_name">Daftar Liga</string>
-    <string name="title_detail_liga">Detail Liga</string>
-    <string name="league_badge">League Badge</string>
-    <string name="title_league_name">League Name</string>
-    <string name="title_league_alternate_name">League Alternate Name</string>
-    <string name="title_formed_year">Formed Year</string>
-    <string name="title_first_event">First Event</string>
-    <string name="title_player_gender">Player Gender</string>
-    <string name="title_country">Country</string>
-    <string name="title_website">Website</string>
-    <string name="title_facebook">Facebook</string>
-    <string name="title_twitter">Twitter</string>
-    <string name="title_youtube">Youtube</string>
-    <string name="title_rss_feed">RSS Feed</string>
-    <string name="title_description">Description</string>
-    <string name="home_team_image_desc">Home team image</string>
-    <string name="away_team_image_desc">French Ligue</string>
-    <string name="no_data">NO DATA</string>
-    <string name="dummy_date">Mon, 30 Dec 2019  10:00 WIB</string>
-    <string name="dummy_home_team_name">Premier League</string>
-    <string name="vs">VS</string>
-    <string name="dummy_score">-</string>
-    <string name="dummy_away_team_name">French Ligue</string>
-    <string name="dashed_score">-</string>
-    <string name="title_match_details">Detail Pertandingan</string>
-    <string name="no_description">No description yet</string>
-    <string name="dummy_match_description">match description</string>
-    <string name="dummy_home_team_round">home team round</string>
-    <string name="dummy_away_team_round">away_team_round</string>
-    <string name="title_round">Round</string>
-    <string name="dummy_away_score">away score</string>
-    <string name="dummy_match_time">20:00</string>
-    <string name="dummy_home_score">home score</string>
-    <string name="title_score">Score</string>
-    <string name="dummy_match_date">Mon, 6 Jan 2020</string>
-    <string name="dummy_dtl_home_team_name">home team name</string>
-    <string name="title_away_team">Away Team</string>
-    <string name="title_home_team">Home Team</string>
-    <string name="title_team_name">Team Name</string>
-    <string name="dummy_dtl_away_team_name">away team name</string>
-    <string name="title_search_matches">Search Match</string>
-    <string name="title_menu_favorite">Add as Favorite</string>
-    <string name="toast_deleted_from_favorite">Pertandingan ini telah dihapus dari daftar favorit!</string>
-    <string name="toast_added_as_favorite">Pertandingan ini telah ditambahkan ke daftar favorit.</string>
-    <string name="title_favorite_match_list">Favorite Match List</string>
+    <string name="title_detail_liga" translatable="false">Detail Liga</string>
+    <string name="league_badge" translatable="false">League Badge</string>
+    <string name="title_league_name" translatable="false">League Name</string>
+    <string name="title_league_alternate_name" translatable="false">League Alternate Name</string>
+    <string name="title_formed_year" translatable="false">Formed Year</string>
+    <string name="title_first_event" translatable="false">First Event</string>
+    <string name="title_player_gender" translatable="false">Player Gender</string>
+    <string name="title_country" translatable="false">Country</string>
+    <string name="title_website" translatable="false">Website</string>
+    <string name="title_facebook" translatable="false">Facebook</string>
+    <string name="title_twitter" translatable="false">Twitter</string>
+    <string name="title_youtube" translatable="false">Youtube</string>
+    <string name="title_rss_feed" translatable="false">RSS Feed</string>
+    <string name="title_description" translatable="false">Description</string>
+    <string name="home_team_image_desc" translatable="false">Home team image</string>
+    <string name="away_team_image_desc" translatable="false">French Ligue</string>
+    <string name="no_data" translatable="false">NO DATA</string>
+    <string name="dummy_date" translatable="false">Mon, 30 Dec 2019  10:00 WIB</string>
+    <string name="dummy_home_team_name" translatable="false">Premier League</string>
+    <string name="vs" translatable="false">VS</string>
+    <string name="dummy_score" translatable="false">-</string>
+    <string name="dummy_away_team_name" translatable="false">French Ligue</string>
+    <string name="dashed_score" translatable="false">-</string>
+    <string name="title_match_details" translatable="false">Detail Pertandingan</string>
+    <string name="no_description" translatable="false">No description yet</string>
+    <string name="dummy_match_description" translatable="false">match description</string>
+    <string name="dummy_home_team_round" translatable="false">home team round</string>
+    <string name="dummy_away_team_round" translatable="false">away_team_round</string>
+    <string name="title_round" translatable="false">Round</string>
+    <string name="dummy_away_score" translatable="false">away score</string>
+    <string name="dummy_match_time" translatable="false">20:00</string>
+    <string name="dummy_home_score" translatable="false">home score</string>
+    <string name="title_score" translatable="false">Score</string>
+    <string name="dummy_match_date" translatable="false">Mon, 6 Jan 2020</string>
+    <string name="dummy_dtl_home_team_name" translatable="false">home team name</string>
+    <string name="title_away_team" translatable="false">Away Team</string>
+    <string name="title_home_team" translatable="false">Home Team</string>
+    <string name="title_team_name" translatable="false">Team Name</string>
+    <string name="dummy_dtl_away_team_name" translatable="false">away team name</string>
+    <string name="title_search_matches" translatable="false">Search Match</string>
+    <string name="title_menu_favorite" translatable="false">Add as Favorite</string>
+    <string name="toast_deleted_from_favorite" translatable="false">Pertandingan ini telah dihapus dari daftar favorit!</string>
+    <string name="toast_added_as_favorite" translatable="false">Pertandingan ini telah ditambahkan ke daftar favorit.</string>
+    <string name="title_favorite_match_list" translatable="false">Favorite Match List</string>
+    <string name="content_desc_search">Search</string>
+    <string name="content_desc_navigate_up">Navigate up</string>
 
     <string-array name="league_ids">
         <item>4328</item>

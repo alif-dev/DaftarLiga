@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Daftar Liga</string>
+    <string name="content_desc_navigate_up" translatable="false">Kembali ke atas</string>
+    <string name="content_desc_search" translatable="false">Mencari</string>
+</resources>
