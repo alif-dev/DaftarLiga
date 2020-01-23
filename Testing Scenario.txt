@@ -14,4 +14,8 @@ SKENARIO INSTRUMENTATION TESTING:
 7. Memastikan bahwa recyclerview telah ditampilkan
 8. Melakukan scroll pada recyclerview ke posisi ke-8
 9. Melakukan klik item posisi ke-8 dari recyclerview
-10. Melakukan klik pada Up button untuk kembali ke fragment search match
+10. Memastikan icon add to favorite match ditampilkan
+11. Melakukan klik pada icon add to favorite match
+12. Melakukan klik pada tombol back device
+13. Memastikan main tab layout ditampilkan
+14. Melakukan klik pada tab "Favorites"
