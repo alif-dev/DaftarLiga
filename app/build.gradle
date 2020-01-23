@@ -68,6 +68,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 
+    // espresso idling resource
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
+
     // testing library
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:3.0.0'

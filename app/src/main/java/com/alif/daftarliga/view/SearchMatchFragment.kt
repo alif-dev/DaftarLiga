@@ -13,6 +13,7 @@ import com.alif.daftarliga.model.Event2
 import com.alif.daftarliga.model.EventResponse2
 import com.alif.daftarliga.model.webservice.ApiRepository
 import com.alif.daftarliga.presenter.SearchMatchPresenter
+import com.alif.daftarliga.utilities.EspressoIdlingResource
 import com.alif.daftarliga.view.adapters.MatchesAdapter2
 import com.alif.daftarliga.view.viewinterfaces.SearchMatchView
 import com.google.gson.Gson
@@ -64,6 +65,8 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         searchMatchPresenter = SearchMatchPresenter(this, apiRepository, gson)
+        // memberitahukan Espresso bahwa aplikasi sedang menjalankan proses asynchronous
+        EspressoIdlingResource.increment()
         searchMatchPresenter.searchMatchDataFromAPI(query)
         search_view_match.clearFocus()
         return true
@@ -80,6 +83,12 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
     }
 
     override fun showSearchedMatches(searchedMatchList: ArrayList<EventResponse2>) {
+        // cek apakah proses asynchronous telah selesai atau belum
+        if (!EspressoIdlingResource.idlingResource.isIdleNow) {
+            // memberitahukan bahwa proses asynchronous telah selesai
+            EspressoIdlingResource.decrement()
+        }
+
         val searchedMatchListObject: EventResponse2 = searchedMatchList[0]
         val searchedMatchListData: ArrayList<Event2>? = ArrayList()
         // if the searched match list data is null or empty from the API then do not show recyclerview

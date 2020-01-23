@@ -12,6 +12,7 @@ import com.alif.daftarliga.model.EventResponse
 import com.alif.daftarliga.model.League
 import com.alif.daftarliga.model.webservice.ApiRepository
 import com.alif.daftarliga.presenter.MainPresenter
+import com.alif.daftarliga.utilities.EspressoIdlingResource
 import com.alif.daftarliga.view.adapters.LeagueListAdapter
 import com.alif.daftarliga.view.viewinterfaces.MainView
 import com.google.gson.Gson
@@ -65,6 +66,8 @@ class LeagueListFragment : Fragment(), MainView {
         val leagueIds = resources.getStringArray(R.array.league_ids)
 
         leaguePresenter = MainPresenter(this, apiRepository, gson)
+        // memberitahukan Espresso bahwa aplikasi sedang menjalankan proses asynchronous
+        EspressoIdlingResource.increment()
         leaguePresenter.getLeagueDataFromAPI(leagueIds)
     }
 
@@ -101,6 +104,12 @@ class LeagueListFragment : Fragment(), MainView {
         allLeaguesNextMatchList: ArrayList<EventResponse>,
         allLeaguesPrevMatchList: ArrayList<EventResponse>
     ) {
+        // cek apakah proses asynchronous telah selesai atau belum
+        if (!EspressoIdlingResource.idlingResource.isIdleNow) {
+            // memberitahukan bahwa proses asynchronous telah selesai
+            EspressoIdlingResource.decrement()
+        }
+
         mainAdapter = LeagueListAdapter(leagueList, allLeaguesNextMatchList, allLeaguesPrevMatchList)
         rv_league_list.layoutManager = GridLayoutManager(activity, 2)
         rv_league_list.setHasFixedSize(true)

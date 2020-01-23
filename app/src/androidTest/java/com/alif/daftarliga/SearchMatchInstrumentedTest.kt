@@ -3,6 +3,7 @@ package com.alif.daftarliga
 import android.view.KeyEvent
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -12,8 +13,11 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
 import com.alif.daftarliga.R.id.*
+import com.alif.daftarliga.utilities.EspressoIdlingResource
 import com.alif.daftarliga.view.MainActivity
 import org.hamcrest.Matchers
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,6 +28,11 @@ class SearchMatchInstrumentedTest {
     @Rule
     @JvmField
     val activityRule = ActivityTestRule(MainActivity::class.java)
+
+    @Before
+    fun registerIdlingResource() {
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.idlingResource)
+    }
 
     @Test
     fun testSearchMatch() {
@@ -42,12 +51,18 @@ class SearchMatchInstrumentedTest {
             .perform(pressKey(KeyEvent.KEYCODE_ENTER))
         onView(withId(rv_searched_matches))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
-            .perform(click())
+        onView(withId(rv_searched_matches))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(8, click()))
         onView(withId(action_favorite_match)).check(matches(isDisplayed()))
         onView(withId(action_favorite_match)).perform(click())
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.pressBack()
         onView(withId(main_tabs)).check(matches(isDisplayed()))
         onView(withText("Favorites")).perform(click())
+    }
+
+    @After
+    fun unregisterIdlingResource() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.idlingResource)
     }
 }
