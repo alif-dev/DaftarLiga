@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         const val ID_HOME_TEAM_KEY = "idHomeTeamData"
         const val ID_AWAY_TEAM_KEY = "idAwayTeamData"
         const val ID_EVENT_KEY = "idEventData"
+        const val EVENT_DATA_KEY = "eventData"
+        const val NEXT_EVENT_DATA_VALUE = "nextEvent"
+        const val PREV_EVENT_DATA_VALUE = "prevEvent"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         main_view_pager.adapter = MainPagerAdapter(supportFragmentManager)
-        main_view_pager.offscreenPageLimit = 5
+        main_view_pager.offscreenPageLimit = 3
         main_tabs.setupWithViewPager(main_view_pager)
         main_tabs.getTabAt(0)?.setIcon(R.drawable.sports_soccer_white_24dp)
         main_tabs.getTabAt(1)?.setIcon(R.drawable.ic_star_white_24dp)

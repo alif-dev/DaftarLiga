@@ -27,17 +27,17 @@ class MainPresenter(
         GlobalScope.launch(context.main) {
             for (i in leagueIds.indices) {
                 val leagueAPIData = gson.fromJson(
-                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getLeagueData(leagueIds[i])).await(),
+                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getLeagueDetails(leagueIds[i])).await(),
                     LeagueResponse::class.java
                 )
 
                 val nextMatchEventsAPIData = gson.fromJson(
-                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getNextMatchesData(leagueIds[i])).await(),
+                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getLeagueNextMatchesData(leagueIds[i])).await(),
                     EventResponse::class.java
                 )
 
                 val previousMatchesAPIData = gson.fromJson(
-                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getPreviousMatchesData(leagueIds[i])).await(),
+                    apiRepository.doRequestWithCoroutinesAsync(TheSportDBApi.getLeaguePreviousMatchesData(leagueIds[i])).await(),
                     EventResponse::class.java
                 )
 

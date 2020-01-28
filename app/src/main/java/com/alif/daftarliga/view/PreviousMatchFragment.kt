@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.view.adapters.MatchesAdapter
+import com.alif.daftarliga.view.adapters.PreviousMatchesAdapter
 import kotlinx.android.synthetic.main.fragment_previous_match.*
+import kotlinx.android.synthetic.main.recyclerview_matches.*
+import kotlinx.android.synthetic.main.textview_no_data.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,16 +49,18 @@ class PreviousMatchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // if the next match list data is null or empty from the API then do not show recyclerview
+        // if the prev match list data is null or empty from the API then do not show recyclerview
         // but show "no data" textview
         if (!prevMatchList.isNullOrEmpty()) {
-            rv_prev_matches.layoutManager = LinearLayoutManager(activity)
-            rv_prev_matches.setHasFixedSize(true)
-            rv_prev_matches.adapter = prevMatchList?.let { MatchesAdapter(it) }
+            rv_matches.layoutManager = LinearLayoutManager(activity)
+            rv_matches.setHasFixedSize(true)
+            rv_matches.adapter = prevMatchList?.let { PreviousMatchesAdapter(it) }
         } else {
-            tv_no_data_prev.visibility = View.VISIBLE
+            rv_matches.visibility = View.INVISIBLE
+            tv_no_data.visibility = View.VISIBLE
         }
     }
+
 
     companion object {
         /**

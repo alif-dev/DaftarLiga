@@ -38,8 +38,8 @@ class PreviousMatchesAdapter(private val prevMatchList: ArrayList<Event>)
             matchDate.text = DateFormatter.formatDateToCommon(item.dateEvent) + "  " + item.strTime?.dropLast(3)
             homeTeamName.text = item.strHomeTeam
             awayTeamName.text = item.strAwayTeam
-            homeScore.text = item.intHomeScore
-            awayScore.text = item.intAwayScore
+            if (item.intHomeScore.isNullOrBlank()) homeScore.text = "-" else homeScore.text = item.intHomeScore
+            if (item.intAwayScore.isNullOrBlank()) awayScore.text = "-" else awayScore.text = item.intAwayScore
             view.setOnClickListener {
                 val idEvent = item.idEvent
                 val idHomeTeam = item.idHomeTeam
@@ -48,6 +48,7 @@ class PreviousMatchesAdapter(private val prevMatchList: ArrayList<Event>)
                 intent.putExtra(MainActivity.ID_EVENT_KEY, idEvent)
                 intent.putExtra(MainActivity.ID_HOME_TEAM_KEY, idHomeTeam)
                 intent.putExtra(MainActivity.ID_AWAY_TEAM_KEY, idAwayTeam)
+                intent.putExtra(MainActivity.EVENT_DATA_KEY, MainActivity.PREV_EVENT_DATA_VALUE)
                 view.context.startActivity(intent)
             }
         }

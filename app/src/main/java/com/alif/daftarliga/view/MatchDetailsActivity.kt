@@ -10,6 +10,8 @@ import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.model.FavoriteMatch
 import com.alif.daftarliga.model.database.database
+import com.alif.daftarliga.model.database.dbNextMatches
+import com.alif.daftarliga.model.database.dbPrevMatches
 import com.alif.daftarliga.model.webservice.ApiRepository
 import com.alif.daftarliga.presenter.MatchDetailsPresenter
 import com.alif.daftarliga.utilities.DateFormatter
@@ -34,6 +36,7 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
     private var awayTeam: String? = null
     private var homeScore: String? = null
     private var awayScore: String? = null
+    private var eventData: String? = null
     private var favoriteState = false
     private var menu: Menu? = null
 
@@ -49,6 +52,7 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
         idEvent = intent.getStringExtra(MainActivity.ID_EVENT_KEY)
         idHomeTeam = intent.getStringExtra(MainActivity.ID_HOME_TEAM_KEY)
         idAwayTeam = intent.getStringExtra(MainActivity.ID_AWAY_TEAM_KEY)
+        eventData = intent.getStringExtra(MainActivity.EVENT_DATA_KEY)
 
         initData(idEvent, idHomeTeam, idAwayTeam)
     }
@@ -152,45 +156,87 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
     }
 
     private fun addAsFavorite() {
-        database.use {
-            insert(
-                FavoriteMatch.TABLE_FAVORITE_MATCH,
-                FavoriteMatch.ID_EVENT to idEvent,
-                FavoriteMatch.ID_HOME_TEAM to idHomeTeam,
-                FavoriteMatch.ID_AWAY_TEAM to idAwayTeam,
-                FavoriteMatch.DATE_EVENT to dateEvent,
-                FavoriteMatch.TIME to time,
-                FavoriteMatch.HOME_TEAM to homeTeam,
-                FavoriteMatch.AWAY_TEAM to awayTeam,
-                FavoriteMatch.HOME_SCORE to homeScore,
-                FavoriteMatch.AWAY_SCORE to awayScore
-            )
+        if (eventData.equals(MainActivity.PREV_EVENT_DATA_VALUE)) {
+            dbPrevMatches.use {
+                insert(
+                    FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    FavoriteMatch.ID_EVENT to idEvent,
+                    FavoriteMatch.ID_HOME_TEAM to idHomeTeam,
+                    FavoriteMatch.ID_AWAY_TEAM to idAwayTeam,
+                    FavoriteMatch.DATE_EVENT to dateEvent,
+                    FavoriteMatch.TIME to time,
+                    FavoriteMatch.HOME_TEAM to homeTeam,
+                    FavoriteMatch.AWAY_TEAM to awayTeam,
+                    FavoriteMatch.HOME_SCORE to homeScore,
+                    FavoriteMatch.AWAY_SCORE to awayScore
+                )
+            }
+        } else {
+            dbNextMatches.use {
+                insert(
+                    FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    FavoriteMatch.ID_EVENT to idEvent,
+                    FavoriteMatch.ID_HOME_TEAM to idHomeTeam,
+                    FavoriteMatch.ID_AWAY_TEAM to idAwayTeam,
+                    FavoriteMatch.DATE_EVENT to dateEvent,
+                    FavoriteMatch.TIME to time,
+                    FavoriteMatch.HOME_TEAM to homeTeam,
+                    FavoriteMatch.AWAY_TEAM to awayTeam,
+                    FavoriteMatch.HOME_SCORE to homeScore,
+                    FavoriteMatch.AWAY_SCORE to awayScore
+                )
+            }
         }
         toast(getString(R.string.toast_added_as_favorite))
     }
 
     private fun checkFavoriteStateAndChangeIcon() {
-        database.use {
-            val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
-                .whereArgs(
-                    "(ID_EVENT = {idEvent})",
-                    "idEvent" to idEvent.toString()
-                )
-            val favoriteMatch = result.parseList(classParser<FavoriteMatch>())
-            if (favoriteMatch.isNotEmpty()) favoriteState = true
+        if (eventData.equals(MainActivity.PREV_EVENT_DATA_VALUE)) {
+            dbPrevMatches.use {
+                val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
+                    .whereArgs(
+                        "(ID_EVENT = {idEvent})",
+                        "idEvent" to idEvent.toString()
+                    )
+                val favoriteMatch = result.parseList(classParser<FavoriteMatch>())
+                if (favoriteMatch.isNotEmpty()) favoriteState = true
 
-            // change favoriteIcon based on favoriteState
-            changeFavoriteIcon(favoriteState)
+                // change favoriteIcon based on favoriteState
+                changeFavoriteIcon(favoriteState)
+            }
+        } else {
+            dbNextMatches.use {
+                val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
+                    .whereArgs(
+                        "(ID_EVENT = {idEvent})",
+                        "idEvent" to idEvent.toString()
+                    )
+                val favoriteMatch = result.parseList(classParser<FavoriteMatch>())
+                if (favoriteMatch.isNotEmpty()) favoriteState = true
+
+                // change favoriteIcon based on favoriteState
+                changeFavoriteIcon(favoriteState)
+            }
         }
     }
 
     private fun removeFromFavorite() {
-        database.use {
-            delete(
-                FavoriteMatch.TABLE_FAVORITE_MATCH,
-                "(ID_EVENT = {idEvent})",
-                "idEvent" to idEvent.toString()
-            )
+        if (eventData.equals(MainActivity.PREV_EVENT_DATA_VALUE)) {
+            dbPrevMatches.use {
+                delete(
+                    FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    "(ID_EVENT = {idEvent})",
+                    "idEvent" to idEvent.toString()
+                )
+            }
+        } else {
+            dbNextMatches.use {
+                delete(
+                    FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    "(ID_EVENT = {idEvent})",
+                    "idEvent" to idEvent.toString()
+                )
+            }
         }
         toast(R.string.toast_deleted_from_favorite)
     }

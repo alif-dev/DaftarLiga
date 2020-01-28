@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBackground"
-    tools:context=".view.FavoriteFragment">
+    tools:context=".view.SearchFragment">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/favorite_tabs"
+        android:id="@+id/search_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,8 +17,8 @@
         app:tabTextColor="@android:color/white" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/favorite_view_pager"
+        android:id="@+id/search_view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/favorite_tabs" />
+        android:layout_below="@id/search_tabs" />
 </RelativeLayout>

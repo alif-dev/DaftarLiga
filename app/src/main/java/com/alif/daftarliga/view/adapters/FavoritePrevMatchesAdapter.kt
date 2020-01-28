@@ -12,8 +12,8 @@ import com.alif.daftarliga.model.FavoriteMatch
 import com.alif.daftarliga.view.MainActivity
 import com.alif.daftarliga.view.MatchDetailsActivity
 
-class FavoriteMatchesAdapter(private val matchList: ArrayList<FavoriteMatch>)
-    : RecyclerView.Adapter<FavoriteMatchesAdapter.ViewHolder>() {
+class FavoritePrevMatchesAdapter(private val matchList: ArrayList<FavoriteMatch>)
+    : RecyclerView.Adapter<FavoritePrevMatchesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.match_item, parent, false))
@@ -47,6 +47,7 @@ class FavoriteMatchesAdapter(private val matchList: ArrayList<FavoriteMatch>)
                 intent.putExtra(MainActivity.ID_EVENT_KEY, idEvent)
                 intent.putExtra(MainActivity.ID_HOME_TEAM_KEY, idHomeTeam)
                 intent.putExtra(MainActivity.ID_AWAY_TEAM_KEY, idAwayTeam)
+                intent.putExtra(MainActivity.EVENT_DATA_KEY, MainActivity.PREV_EVENT_DATA_VALUE)
                 view.context.startActivity(intent)
             }
         }

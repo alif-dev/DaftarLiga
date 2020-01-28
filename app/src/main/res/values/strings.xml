@@ -15,13 +15,13 @@
     <string name="title_rss_feed" translatable="false">RSS Feed</string>
     <string name="title_description" translatable="false">Description</string>
     <string name="home_team_image_desc" translatable="false">Home team image</string>
-    <string name="away_team_image_desc" translatable="false">French Ligue</string>
+    <string name="away_team_image_desc" translatable="false">Away team image</string>
     <string name="no_data" translatable="false">NO DATA</string>
     <string name="dummy_date" translatable="false">Mon, 30 Dec 2019  10:00 WIB</string>
-    <string name="dummy_home_team_name" translatable="false">Premier League</string>
+    <string name="dummy_team_name_1" translatable="false">Arsenal</string>
     <string name="vs" translatable="false">VS</string>
     <string name="dummy_score" translatable="false">-</string>
-    <string name="dummy_away_team_name" translatable="false">French Ligue</string>
+    <string name="dummy_team_name_2" translatable="false">Liverpool</string>
     <string name="dashed_score" translatable="false">-</string>
     <string name="title_match_details" translatable="false">Detail Pertandingan</string>
     <string name="no_description" translatable="false">No description yet</string>
@@ -46,6 +46,9 @@
     <string name="title_favorite_match_list" translatable="false">Favorite Match List</string>
     <string name="content_desc_search">Search</string>
     <string name="content_desc_navigate_up">Navigate up</string>
+    <string name="dummy_team_name" translatable="false">Arsenal</string>
+    <string name="team_image" translatable="false">Team image</string>
+    <string name="dummy_league_name" translatable="false">English Premier League</string>
 
     <string-array name="league_ids">
         <item>4328</item>
@@ -59,4 +62,7 @@
         <item>4330</item>
         <item>4396</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>
