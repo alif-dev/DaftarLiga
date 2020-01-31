@@ -3,8 +3,6 @@ package com.alif.daftarliga.view.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.alif.daftarliga.view.FavoriteFragment
-import com.alif.daftarliga.view.LeagueListFragment
 import com.alif.daftarliga.view.SearchMatchFragment
 import com.alif.daftarliga.view.SearchTeamFragment
 

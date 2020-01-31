@@ -9,10 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alif.daftarliga.R
-import com.alif.daftarliga.model.FavoriteMatch
 import com.alif.daftarliga.model.FavoriteTeam
 import com.alif.daftarliga.view.MainActivity
-import com.alif.daftarliga.view.MatchDetailsActivity
 import com.alif.daftarliga.view.TeamDetailsActivity
 import com.bumptech.glide.Glide
 

@@ -3,7 +3,9 @@ package com.alif.daftarliga.view.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.alif.daftarliga.view.*
+import com.alif.daftarliga.view.FavoriteNextMatchesFragment
+import com.alif.daftarliga.view.FavoritePreviousMatchesFragment
+import com.alif.daftarliga.view.FavoriteTeamsFragment
 
 class FavoritePagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {

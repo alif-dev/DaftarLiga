@@ -2,16 +2,14 @@ package com.alif.daftarliga.view
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Team
 import com.alif.daftarliga.view.adapters.TeamsAdapter
-import kotlinx.android.synthetic.main.recyclerview_matches.*
 import kotlinx.android.synthetic.main.recyclerview_teams.*
 import kotlinx.android.synthetic.main.textview_no_data.*
 

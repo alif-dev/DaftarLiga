@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.alif.daftarliga.R
-import com.alif.daftarliga.model.*
+import com.alif.daftarliga.model.EventResponse
+import com.alif.daftarliga.model.League
+import com.alif.daftarliga.model.TableResponse
+import com.alif.daftarliga.model.TeamResponse
 import com.alif.daftarliga.view.LeagueDetailActivity
 import com.alif.daftarliga.view.MainActivity
 import com.bumptech.glide.Glide
