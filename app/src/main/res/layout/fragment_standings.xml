@@ -68,16 +68,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
         android:id="@+id/container_rv_standings"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp">
 
         <include layout="@layout/recyclerview_standings" />
     </LinearLayout>
 
     <LinearLayout
-
         android:id="@+id/container_desc_abbr_standings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

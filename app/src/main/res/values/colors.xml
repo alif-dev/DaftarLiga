@@ -5,7 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorMainBackground">#242222</color>
     <color name="colorTabBackground">#EF5350</color>
-    <color name="colorTableRow1">@android:color/holo_blue_dark</color>
-    <color name="colorTableRow2">@android:color/holo_blue_light</color>
     <color name="colorTableTitleRow">@android:color/darker_gray</color>
 </resources>

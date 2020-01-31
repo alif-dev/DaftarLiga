@@ -42,15 +42,12 @@
     <string name="title_menu_favorite" translatable="false">Add as Favorite</string>
     <string name="toast_deleted_match_from_favorite" translatable="false">Pertandingan ini telah dihapus dari daftar favorit!</string>
     <string name="toast_added_match_as_favorite" translatable="false">Pertandingan ini telah ditambahkan ke daftar favorit.</string>
-    <string name="content_desc_search" translatable="false">Search</string>
     <string name="dummy_team_name" translatable="false">Arsenal</string>
     <string name="team_image" translatable="false">Team image</string>
-    <string name="dummy_league_name" translatable="false">English Premier League</string>
     <string name="title_team_details" translatable="false">Detail Tim</string>
     <string name="team_badge_image" translatable="false">Team badge image</string>
     <string name="title_team_alternate_name" translatable="false">Team Alternate Name</string>
     <string name="title_team_league" translatable="false">Team League</string>
-    <string name="title_team_stadium" translatable="false">Stadium</string>
     <string name="team_stadium_content_desc" translatable="false">Team stadium</string>
     <string name="title_team_stadium_image" translatable="false">Stadium Image</string>
     <string name="title_team_stadium_name" translatable="false">Stadium Name</string>
@@ -59,7 +56,6 @@
     <string name="dummy_country" translatable="false">England</string>
     <string name="toast_deleted_team_from_favorite" translatable="false">Tim ini telah dihapus dari daftar favorit!</string>
     <string name="toast_added_team_as_favorite" translatable="false">Tim ini telah ditambahkan ke daftar favorit!</string>
-    <string name="title_team_number_row">NO</string>
     <string name="title_team_name_row">Team</string>
     <string name="title_team_played_row">P</string>
     <string name="title_team_goals_for_row">GF</string>
