@@ -19,6 +19,7 @@ import com.alif.daftarliga.view.adapters.TeamsAdapter
 import com.alif.daftarliga.view.viewinterfaces.SearchTeamView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_search_team.*
+import kotlinx.android.synthetic.main.recyclerview_teams.*
 import kotlinx.android.synthetic.main.textview_no_data.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -58,9 +59,8 @@ class SearchTeamFragment : Fragment(), SearchView.OnQueryTextListener, SearchTea
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         search_view_team.setOnQueryTextListener(this)
-
-        rv_searched_teams.layoutManager = LinearLayoutManager(activity)
-        rv_searched_teams.setHasFixedSize(true)
+        rv_teams.layoutManager = LinearLayoutManager(activity)
+        rv_teams.setHasFixedSize(true)
     }
 
 
@@ -129,13 +129,13 @@ class SearchTeamFragment : Fragment(), SearchView.OnQueryTextListener, SearchTea
             // but show "NO DATA" textview but the opposite if the data is not null or empty
             if (!soccerTeamList.isNullOrEmpty()) {
                 tv_no_data.visibility = View.GONE
-                rv_searched_teams.adapter = TeamsAdapter(ArrayList(soccerTeamList))
+                rv_teams.adapter = TeamsAdapter(ArrayList(soccerTeamList))
             } else {
-                rv_searched_teams.adapter = null
+                rv_teams.adapter = null
                 tv_no_data.visibility = View.VISIBLE
             }
         } else {
-            rv_searched_teams.adapter = null
+            rv_teams.adapter = null
             tv_no_data.visibility = View.VISIBLE
         }
     }

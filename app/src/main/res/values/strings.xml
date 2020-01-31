@@ -39,16 +39,45 @@
     <string name="title_home_team" translatable="false">Home Team</string>
     <string name="title_team_name" translatable="false">Team Name</string>
     <string name="dummy_dtl_away_team_name" translatable="false">away team name</string>
-    <string name="title_search_matches" translatable="false">Search Match</string>
     <string name="title_menu_favorite" translatable="false">Add as Favorite</string>
-    <string name="toast_deleted_from_favorite" translatable="false">Pertandingan ini telah dihapus dari daftar favorit!</string>
-    <string name="toast_added_as_favorite" translatable="false">Pertandingan ini telah ditambahkan ke daftar favorit.</string>
-    <string name="title_favorite_match_list" translatable="false">Favorite Match List</string>
-    <string name="content_desc_search">Search</string>
-    <string name="content_desc_navigate_up">Navigate up</string>
+    <string name="toast_deleted_match_from_favorite" translatable="false">Pertandingan ini telah dihapus dari daftar favorit!</string>
+    <string name="toast_added_match_as_favorite" translatable="false">Pertandingan ini telah ditambahkan ke daftar favorit.</string>
+    <string name="content_desc_search" translatable="false">Search</string>
     <string name="dummy_team_name" translatable="false">Arsenal</string>
     <string name="team_image" translatable="false">Team image</string>
     <string name="dummy_league_name" translatable="false">English Premier League</string>
+    <string name="title_team_details" translatable="false">Detail Tim</string>
+    <string name="team_badge_image" translatable="false">Team badge image</string>
+    <string name="title_team_alternate_name" translatable="false">Team Alternate Name</string>
+    <string name="title_team_league" translatable="false">Team League</string>
+    <string name="title_team_stadium" translatable="false">Stadium</string>
+    <string name="team_stadium_content_desc" translatable="false">Team stadium</string>
+    <string name="title_team_stadium_image" translatable="false">Stadium Image</string>
+    <string name="title_team_stadium_name" translatable="false">Stadium Name</string>
+    <string name="title_team_logo" translatable="false">Team Logo</string>
+    <string name="title_team_description" translatable="false">Team Description</string>
+    <string name="dummy_country" translatable="false">England</string>
+    <string name="toast_deleted_team_from_favorite" translatable="false">Tim ini telah dihapus dari daftar favorit!</string>
+    <string name="toast_added_team_as_favorite" translatable="false">Tim ini telah ditambahkan ke daftar favorit!</string>
+    <string name="title_team_number_row">NO</string>
+    <string name="title_team_name_row">Team</string>
+    <string name="title_team_played_row">P</string>
+    <string name="title_team_goals_for_row">GF</string>
+    <string name="title_goals_against_row">GA</string>
+    <string name="title_team_goals_difference_row">GD</string>
+    <string name="title_team_win_row">W</string>
+    <string name="title_team_draw_row">D</string>
+    <string name="title_team_loss_row">L</string>
+    <string name="title_team_total_row">T</string>
+    <string name="dummy_row_value">2000</string>
+    <string name="desc_abbr_points">P: Points</string>
+    <string name="desc_abbr_goals_for">GF: Goals for</string>
+    <string name="desc_abbr_goals_against">GA: Goals against</string>
+    <string name="desc_abbr_goals_difference">GD: Goals Difference</string>
+    <string name="desc_abbr_win">W: Win</string>
+    <string name="desc_abbr_draw">D: Draw</string>
+    <string name="desc_abbr_loss">L: Loss</string>
+    <string name="desc_abbr_total">T: Total</string>
 
     <string-array name="league_ids">
         <item>4328</item>
@@ -62,7 +91,4 @@
         <item>4330</item>
         <item>4396</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

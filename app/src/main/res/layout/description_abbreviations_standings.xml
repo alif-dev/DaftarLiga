@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/darker_gray"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/abbr_points"
+        android:layout_width="95dp"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:text="@string/desc_abbr_points"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/abbr_goals_for"
+        android:layout_width="95dp"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_below="@id/abbr_points"
+        android:text="@string/desc_abbr_goals_for"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/abbr_points" />
+
+    <TextView
+        android:id="@+id/abbr_goals_against"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_width="140dp"
+        android:layout_toEndOf="@id/abbr_points"
+        android:text="@string/desc_abbr_goals_against"
+        app:layout_constraintStart_toEndOf="@id/abbr_points"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/abbr_goals_difference"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_width="140dp"
+        android:layout_below="@id/abbr_goals_against"
+        android:layout_toEndOf="@id/abbr_goals_for"
+        android:text="@string/desc_abbr_goals_difference"
+        app:layout_constraintStart_toEndOf="@id/abbr_goals_for"
+        app:layout_constraintTop_toBottomOf="@id/abbr_goals_against"/>
+
+    <TextView
+        android:id="@+id/abbr_win"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_width="60dp"
+        android:layout_toEndOf="@id/abbr_goals_against"
+        android:text="@string/desc_abbr_win"
+        app:layout_constraintStart_toEndOf="@id/abbr_goals_against"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/abbr_draw"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_width="60dp"
+        android:layout_below="@id/abbr_win"
+        android:layout_toEndOf="@id/abbr_goals_difference"
+        android:text="@string/desc_abbr_draw"
+        app:layout_constraintStart_toEndOf="@id/abbr_goals_difference"
+        app:layout_constraintTop_toBottomOf="@id/abbr_win"/>
+
+    <TextView
+        android:id="@+id/abbr_loss"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_width="60dp"
+        android:layout_toEndOf="@id/abbr_win"
+        android:text="@string/desc_abbr_loss"
+        app:layout_constraintStart_toEndOf="@id/abbr_win"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/abbr_total"
+        style="@style/standingsAbbreviationsDescriptionStyle"
+        android:layout_width="60dp"
+        android:layout_below="@id/abbr_loss"
+        android:layout_toEndOf="@id/abbr_draw"
+        android:text="@string/desc_abbr_total"
+        app:layout_constraintTop_toBottomOf="@id/abbr_loss"
+        app:layout_constraintStart_toEndOf="@id/abbr_draw"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

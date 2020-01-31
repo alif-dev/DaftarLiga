@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
 import com.alif.daftarliga.model.FavoriteMatch
-import com.alif.daftarliga.model.database.database
 import com.alif.daftarliga.model.database.dbNextMatches
 import com.alif.daftarliga.model.database.dbPrevMatches
 import com.alif.daftarliga.model.webservice.ApiRepository
@@ -123,7 +122,7 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         this.menu = menu
-        menuInflater.inflate(R.menu.menu_match_details, menu)
+        menuInflater.inflate(R.menu.menu_favorite, menu)
         // check whether the match data is already in FavoriteMatch database or not
         // and then change the favorite icon based on that condition
         checkFavoriteStateAndChangeIcon()
@@ -187,7 +186,7 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
                 )
             }
         }
-        toast(getString(R.string.toast_added_as_favorite))
+        toast(getString(R.string.toast_added_match_as_favorite))
     }
 
     private fun checkFavoriteStateAndChangeIcon() {
@@ -238,7 +237,7 @@ class MatchDetailsActivity : AppCompatActivity(), MatchDetailsView {
                 )
             }
         }
-        toast(R.string.toast_deleted_from_favorite)
+        toast(R.string.toast_deleted_match_from_favorite)
     }
 
     // back when the Up button is pressed

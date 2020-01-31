@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
+    android:orientation="vertical"
+    tools:context=".view.StandingsFragment">
+
+    <LinearLayout
+        android:id="@+id/container_tv_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/textview_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_title_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:layout_width="120dp"
+            android:text="@string/title_team_name_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:layout_width="28dp"
+            android:text="@string/title_team_played_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:text="@string/title_team_goals_for_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:text="@string/title_goals_against_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:text="@string/title_team_goals_difference_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:layout_width="28dp"
+            android:text="@string/title_team_win_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:layout_width="28dp"
+            android:text="@string/title_team_draw_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:layout_width="28dp"
+            android:text="@string/title_team_loss_row" />
+
+        <TextView
+            style="@style/titleRowTextStyle"
+            android:text="@string/title_team_total_row" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/container_rv_standings"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <include layout="@layout/recyclerview_standings" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/container_desc_abbr_standings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/description_abbreviations_standings" />
+    </LinearLayout>
+</LinearLayout>

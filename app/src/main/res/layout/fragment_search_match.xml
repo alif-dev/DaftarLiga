@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainBackground"
+    android:background="@color/colorMainBackground"
     android:orientation="vertical"
     tools:context=".view.SearchMatchFragment">
 
@@ -16,7 +16,7 @@
         android:id="@+id/search_view_match"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tabBackground"
+        android:background="@color/colorTabBackground"
         android:queryBackground="@android:color/white"
         android:queryHint="Masukkan nama-nama tim"
         android:searchIcon="@drawable/ic_search_white_24dp">

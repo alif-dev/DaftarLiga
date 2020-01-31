@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_league_details.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private val ARG_PARAM1 = MainActivity.LEAGUE_DATA_KEY
+private const val ARG_PARAM1 = MainActivity.LEAGUE_DATA_KEY
 private const val ARG_PARAM2 = "param2"
 
 /**

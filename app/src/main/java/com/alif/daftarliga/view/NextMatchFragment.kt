@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.Event
-import com.alif.daftarliga.view.adapters.MatchesAdapter
 import com.alif.daftarliga.view.adapters.NextMatchesAdapter
-import kotlinx.android.synthetic.main.fragment_next_match.*
 import kotlinx.android.synthetic.main.recyclerview_matches.*
 import kotlinx.android.synthetic.main.textview_no_data.*
 

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.alif.daftarliga.R
 import com.alif.daftarliga.model.EventResponse
 import com.alif.daftarliga.model.League
+import com.alif.daftarliga.model.TableResponse
+import com.alif.daftarliga.model.TeamResponse
 import com.alif.daftarliga.model.webservice.ApiRepository
 import com.alif.daftarliga.presenter.MainPresenter
 import com.alif.daftarliga.utilities.EspressoIdlingResource
@@ -102,7 +104,9 @@ class LeagueListFragment : Fragment(), MainView {
     override fun showLeagueImageGridList(
         leagueList: List<League>,
         allLeaguesNextMatchList: ArrayList<EventResponse>,
-        allLeaguesPrevMatchList: ArrayList<EventResponse>
+        allLeaguesPrevMatchList: ArrayList<EventResponse>,
+        allLeaguesStandingsDataList: ArrayList<TableResponse>,
+        allLeaguesTeamDataList: ArrayList<TeamResponse>
     ) {
         // cek apakah proses asynchronous telah selesai atau belum
         if (!EspressoIdlingResource.idlingResource.isIdleNow) {
@@ -110,7 +114,13 @@ class LeagueListFragment : Fragment(), MainView {
             EspressoIdlingResource.decrement()
         }
 
-        mainAdapter = LeagueListAdapter(leagueList, allLeaguesNextMatchList, allLeaguesPrevMatchList)
+        mainAdapter = LeagueListAdapter(
+            leagueList,
+            allLeaguesNextMatchList,
+            allLeaguesPrevMatchList,
+            allLeaguesStandingsDataList,
+            allLeaguesTeamDataList
+        )
         rv_league_list.layoutManager = GridLayoutManager(activity, 2)
         rv_league_list.setHasFixedSize(true)
         rv_league_list.adapter = mainAdapter

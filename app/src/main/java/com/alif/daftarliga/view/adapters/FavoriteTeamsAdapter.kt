@@ -9,13 +9,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alif.daftarliga.R
-import com.alif.daftarliga.model.Team
+import com.alif.daftarliga.model.FavoriteMatch
+import com.alif.daftarliga.model.FavoriteTeam
 import com.alif.daftarliga.view.MainActivity
+import com.alif.daftarliga.view.MatchDetailsActivity
 import com.alif.daftarliga.view.TeamDetailsActivity
 import com.bumptech.glide.Glide
 
-class TeamsAdapter(private val teamList: ArrayList<Team>)
-    : RecyclerView.Adapter<TeamsAdapter.ViewHolder>() {
+class FavoriteTeamsAdapter(private val teamList: ArrayList<FavoriteTeam>)
+    : RecyclerView.Adapter<FavoriteTeamsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.team_item, parent, false))
@@ -28,12 +30,12 @@ class TeamsAdapter(private val teamList: ArrayList<Team>)
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        private val teamName: TextView =  view.findViewById(R.id.tv_team_name)
+        private val teamName: TextView = view.findViewById(R.id.tv_team_name)
         private val teamImage: ImageView = view.findViewById(R.id.img_team)
-        private val teamCountry: TextView = view.findViewById(R.id.tv_team_country)
+        private val teamCountry: TextView =  view.findViewById(R.id.tv_team_country)
 
         @SuppressLint("SetTextI18n")
-        fun bindItem(item: Team) {
+        fun bindItem(item: FavoriteTeam) {
             teamName.text = item.strTeam
             Glide.with(view.context).load(item.strTeamBadge).into(teamImage)
             teamCountry.text = item.strCountry

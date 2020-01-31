@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorMainBackground"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/team_name_row"
+        style="@style/dataRowTextStyle"
+        android:layout_width="120dp"
+        android:text="@string/dummy_team_name" />
+
+    <TextView
+        android:id="@+id/team_played_row"
+        style="@style/dataRowTextStyle"
+        android:layout_width="28dp"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_goals_for_row"
+        style="@style/dataRowTextStyle"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_goals_against_row"
+        style="@style/dataRowTextStyle"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_goals_difference_row"
+        style="@style/dataRowTextStyle"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_win_row"
+        style="@style/dataRowTextStyle"
+        android:layout_width="28dp"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_draw_row"
+        style="@style/dataRowTextStyle"
+        android:layout_width="28dp"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_loss_row"
+        style="@style/dataRowTextStyle"
+        android:layout_width="28dp"
+        android:text="@string/dummy_row_value" />
+
+    <TextView
+        android:id="@+id/team_total_row"
+        style="@style/dataRowTextStyle"
+        android:text="@string/dummy_row_value" />
+</LinearLayout>

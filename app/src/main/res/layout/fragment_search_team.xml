@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainBackground"
+    android:background="@color/colorMainBackground"
     android:orientation="vertical"
     tools:context=".view.SearchTeamFragment">
 
@@ -16,7 +16,7 @@
         android:id="@+id/search_view_team"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tabBackground"
+        android:background="@color/colorTabBackground"
         android:queryBackground="@android:color/white"
         android:queryHint="Masukkan nama tim"
         android:searchIcon="@drawable/ic_search_white_24dp">
@@ -37,11 +37,6 @@
 
         <include layout="@layout/textview_no_data" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_searched_teams"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            tools:listitem="@layout/team_item" />
+        <include layout="@layout/recyclerview_teams" />
     </FrameLayout>
 </LinearLayout>

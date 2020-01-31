@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainBackground"
+    android:background="@color/colorMainBackground"
     tools:context=".view.SearchFragment">
 
     <com.google.android.material.tabs.TabLayout
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@color/tabBackground"
+        android:background="@color/colorTabBackground"
         app:tabIndicatorColor="@android:color/white"
         app:tabTextColor="@android:color/white" />
 

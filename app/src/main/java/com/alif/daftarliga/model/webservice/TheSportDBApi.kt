@@ -22,6 +22,18 @@ object TheSportDBApi {
         return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/eventspastleague.php?id=" + leagueId
     }
 
+    // Klasemen pertandingan dari satu liga
+    // https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l={leagueId}
+    fun getLeagueStandings(leagueId: String?): String {
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookuptable.php?l=" + leagueId
+    }
+
+    // Daftar tim dalam satu liga
+    // https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id={leagueId}
+    fun getLeagueTeams(leagueId: String?): String {
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookup_all_teams.php?id=" + leagueId
+    }
+
     // Detail pertandingan
     // API endpoint: https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id={eventId}
     fun getEventDetails(eventId: String?): String {
@@ -34,21 +46,10 @@ object TheSportDBApi {
         return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/searchevents.php?e=" + query
     }
 
-    // Daftar tim dalam satu liga
-    fun getLeagueTeams(leagueId: String?): String {
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/search_all_teams.php?id=" + leagueId
-    }
-
     // Detail tim
     // https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id={teamId}
     fun getTeamDetails(teamId: String?): String {
         return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupteam.php?id=" + teamId
-    }
-
-    // Klasemen pertandingan dari satu liga
-    // https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l={idLeague}
-    fun getLeagueStandings(leagueId: String?): String {
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookuptable.php?id=" + leagueId
     }
 
     // Daftar pemain dalam satu tim

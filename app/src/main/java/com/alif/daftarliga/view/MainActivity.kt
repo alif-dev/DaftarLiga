@@ -14,9 +14,13 @@ class MainActivity : AppCompatActivity() {
         const val ID_HOME_TEAM_KEY = "idHomeTeamData"
         const val ID_AWAY_TEAM_KEY = "idAwayTeamData"
         const val ID_EVENT_KEY = "idEventData"
+        const val ID_TEAM_KEY = "idTeamData"
+        const val TEAM_DATA_KEY = "teamData"
         const val EVENT_DATA_KEY = "eventData"
         const val NEXT_EVENT_DATA_VALUE = "nextEvent"
         const val PREV_EVENT_DATA_VALUE = "prevEvent"
+        const val STANDINGS_DATA_KEY = "standingsData"
+        const val TEAMS_DATA_KEY = "teamsData"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
