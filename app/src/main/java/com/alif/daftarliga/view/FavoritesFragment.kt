@@ -47,6 +47,14 @@ class FavoriteFragment : Fragment() {
         favorite_tabs.setupWithViewPager(favorite_view_pager)
     }
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (isVisibleToUser) {
+            // refresh the fragment when opened (detach and attach it again)
+            fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
+        }
+    }
+
 
     companion object {
         /**
