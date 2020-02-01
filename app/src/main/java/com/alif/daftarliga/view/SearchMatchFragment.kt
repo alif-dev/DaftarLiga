@@ -94,7 +94,7 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
         // if the searched match list data is null or empty from the API then do not show recyclerview
         // but show "NO DATA" textview but the opposite if the data is not null or empty
         if (!searchedMatchListObject.event.isNullOrEmpty()) {
-            tv_no_data.visibility = View.GONE
+            showRecycleView()
             // extract elements in EventResponse2 to list
             for (element in searchedMatchListObject.event) {
                 searchedMatchListData?.add(element)
@@ -105,18 +105,26 @@ class SearchMatchFragment : Fragment(), SearchView.OnQueryTextListener, SearchMa
                 searchedMatchListData?.filter { event2 -> event2.strSport == "Soccer" }
 
             // if the soccer match list data is null or empty then do not show recyclerview
-            // but show "NO DATA" textview but the opposite if the data is not null or empty
+            // instead show "NO DATA" textview but the opposite if the data is not null or empty
             if (!soccerMatchList.isNullOrEmpty()) {
-                tv_no_data.visibility = View.GONE
+                showRecycleView()
                 rv_searched_matches.adapter = MatchesAdapter2(ArrayList(soccerMatchList))
             } else {
-                rv_searched_matches.adapter = null
-                tv_no_data.visibility = View.VISIBLE
+                showNoDataTextView()
             }
         } else {
-            rv_searched_matches.adapter = null
-            tv_no_data.visibility = View.VISIBLE
+            showNoDataTextView()
         }
+    }
+
+    private fun showRecycleView() {
+        tv_no_data.visibility = View.GONE
+        rv_searched_matches.visibility = View.VISIBLE
+    }
+
+    private fun showNoDataTextView() {
+        rv_searched_matches.visibility = View.INVISIBLE
+        tv_no_data.visibility = View.VISIBLE
     }
 
 

@@ -114,7 +114,7 @@ class SearchTeamFragment : Fragment(), SearchView.OnQueryTextListener, SearchTea
         // if the searched match list data is null or empty from the API then do not show recyclerview
         // but show "NO DATA" textview but the opposite if the data is not null or empty
         if (!searchedTeamListObject.teams.isNullOrEmpty()) {
-            tv_no_data.visibility = View.GONE
+            showRecycleView()
             // extract elements in EventResponse2 to list
             for (element in searchedTeamListObject.teams) {
                 searchedTeamListData?.add(element)
@@ -125,17 +125,25 @@ class SearchTeamFragment : Fragment(), SearchView.OnQueryTextListener, SearchTea
                 searchedTeamListData?.filter { team -> team.strSport == "Soccer" }
 
             // if the searched team list data is null or empty then do not show recyclerview
-            // but show "NO DATA" textview but the opposite if the data is not null or empty
+            // instead show "NO DATA" textview but the opposite if the data is not null or empty
             if (!soccerTeamList.isNullOrEmpty()) {
-                tv_no_data.visibility = View.GONE
+                showRecycleView()
                 rv_teams.adapter = TeamsAdapter(ArrayList(soccerTeamList))
             } else {
-                rv_teams.adapter = null
-                tv_no_data.visibility = View.VISIBLE
+                showNoDataTextView()
             }
         } else {
-            rv_teams.adapter = null
-            tv_no_data.visibility = View.VISIBLE
+           showNoDataTextView()
         }
+    }
+
+    private fun showRecycleView() {
+        tv_no_data.visibility = View.GONE
+        rv_teams.visibility = View.VISIBLE
+    }
+
+    private fun showNoDataTextView() {
+        rv_teams.visibility = View.INVISIBLE
+        tv_no_data.visibility = View.VISIBLE
     }
 }
